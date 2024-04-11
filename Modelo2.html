@@ -42,6 +42,7 @@
                         <div class="sub-title"> <b>2. </b> Unidad Zonal de Planeación y Evaluación - Regional - Provincia</div>
                         <input type="text" class="input_general" name="">
 
+
                         <div class="sub-title"> <b>3.</b> Municipio / Área no municipalizada</div>
                         <input type="text" class="input_general" name="">
                         
@@ -68,7 +69,7 @@
                         <input type="text" class="input_general" name="">
                         
                         <div class="sub-title"> <b>10.</b> Número de Identificación de la familia</div>
-                        <input type="text" class="input_general" name="">
+                        <input type="number" class="input_general" name="">
                         
                         <div class="sub-title"> <b>11.</b> Estrato socieconómico de la vivienda</div>
                         <!-- <input type="text" class="input_general" name=""> -->
@@ -82,13 +83,13 @@
                           </select>
                         
                         <div class="sub-title"> <b>12.</b>  Número de hogares en la vivienda</div>
-                        <input type="text" class="input_general" name="">
+                        <input type="number" class="input_general" name="">
                         
                         <div class="sub-title"> <b>13.</b> Número de familias en la vivienda</div>
-                        <input type="text" class="input_general" name="">
+                        <input type="number" class="input_general" name="">
                         
                         <div class="sub-title"> <b>14.</b> Número de personas en la vivienda</div>
-                        <input type="text" class="input_general" name="">
+                        <input type="number" class="input_general" name="">
                         
 
                     </div>
@@ -113,7 +114,7 @@
                         <input type="text" class="input_general" name="">
 
                         <div class="sub-title"> <b>19.</b> Código de la ficha </div>
-                        <input type="text" class="input_general" name="">
+                        <input type="number" class="input_general" name="">
     
                         <div class="sub-title"> <b>20.</b> Fecha diligencimiento de la ficha</div>
                         <input type="date" class="input_general" name="">
@@ -164,6 +165,7 @@
 
                         <div class="sub-title"> <b>22. </b> Número de personas que conforman la familia</div>
                         <input type="text" class="input_general" name="">
+                      
 
                         <div class="sub-title"> <b>23.</b> Estructura y dinámica familiar (Diligenciamiento Familiograma) </div>
                         <input type="text" class="input_general" name="">
@@ -176,14 +178,20 @@
                           </select>
 
 
-                        <div class="sub-title"> <b>25.</b> En la familia se identifica un cuidador principal de niños, niñas, persona con discapacidad, adulto mayor o enfermedad?</div>
-                        <select name="" class="input_general">
-                            <option value="1">Si</option>
-                            <option value="2">No</option>
-                          </select>
+                        <div class="sub-title-large"> <b>25.</b> En la familia se identifica un cuidador principal de niños, niñas, persona con discapacidad, adulto mayor o enfermedad?</div>
+                        <div class="checks">
+                            <div class="check">
+                                <input type="radio" id="opcion1" name="25" value="SI">
+                                <label for="opcion1">SI</label><br>
+                            </div>
+                            <div class="check">
+                                <input type="radio" id="opcion2" name="25" value="NO">
+                                <label for="opcion2">NO</label><br>
+                            </div>
+                        </div>
 
                         
-                        <div class="sub-title"> <b>26.</b>Si la respuesta anterior es SI aplicar escala ZARIT y registre aquí el resultado 
+                        <div class="sub-title_extend"> <b>26.</b>Si la respuesta anterior es SI aplicar escala ZARIT y registre aquí el resultado 
                             -puntaje para determinar si se requiere intervención individual o familiar</div>
                             <select name="" class="input_general">
                                 <option value="1">1. Ausencia de sobrecarga (≤ 46) </option>
@@ -211,22 +219,76 @@
                     <div class="content_section1_1">
 
                         <div class="sub-title"> <b>28.</b> Familia con niñas, niños y adolescentes </div>
-                        <input type="text" class="input_general" name="">
+                                                <div class="checks">
+                            <div class="check">
+                                <input type="radio" id="" name="28" value="SI">
+                                <label for="">SI</label><br>
+                            </div>
+                            <div class="check">
+                                <input type="radio" id="" name="28" value="NO">
+                                <label for="">NO</label><br>
+                            </div>
+                        </div>
     
                         <div class="sub-title"> <b>29.</b> Gestante en la familia</div>
-                        <input type="text" class="input_general" name="">
+                                                <div class="checks">
+                            <div class="check">
+                                <input type="radio" id="" name="29" value="SI">
+                                <label for="">SI</label><br>
+                            </div>
+                            <div class="check">
+                                <input type="radio" id="" name="29" value="NO">
+                                <label for="">NO</label><br>
+                            </div>
+                        </div>
 
                         <div class="sub-title"> <b>30.</b> Familia con personas adultos mayores </div>
-                        <input type="text" class="input_general" name="">
+                                                <div class="checks">
+                            <div class="check">
+                                <input type="radio" id="" name="30" value="SI">
+                                <label for="">SI</label><br>
+                            </div>
+                            <div class="check">
+                                <input type="radio" id="" name="30" value="NO">
+                                <label for="">NO</label><br>
+                            </div>
+                        </div>
     
                         <div class="sub-title"> <b>31.</b> Familia víctima del conflicto armado </div>
-                        <input type="text" class="input_general" name="">
+                                                <div class="checks">
+                            <div class="check">
+                                <input type="radio" id="" name="31" value="SI">
+                                <label for="">SI</label><br>
+                            </div>
+                            <div class="check">
+                                <input type="radio" id="" name="31" value="NO">
+                                <label for="">NO</label><br>
+                            </div>
+                        </div>
 
                         <div class="sub-title"> <b>32.</b>  Familia que convive con personas con discapacidad </div>
-                        <input type="text" class="input_general" name="">
+                        <div class="checks">
+                            <div class="check">
+                                <input type="radio" id="" name="32" value="SI">
+                                <label for="">SI</label><br>
+                            </div>
+                            <div class="check">
+                                <input type="radio" id="" name="32" value="NO">
+                                <label for="">NO</label><br>
+                            </div>
+                        </div>
     
-                        <div class="sub-title"> <b>33.</b> Familia que convive con personas que presentan alguna enfermedad crónica,huérfana o en estado terminal</div>
-                        <input type="date" class="input_general" name="">
+                        <div class="sub-title-large"> <b>33.</b> Familia que convive con personas que presentan alguna enfermedad crónica,huérfana o en estado terminal</div>
+                        <div class="checks">
+                            <div class="check">
+                                <input type="radio" id="" name="33" value="SI">
+                                <label for="">SI</label><br>
+                            </div>
+                            <div class="check">
+                                <input type="radio" id="" name="33" value="NO">
+                                <label for="">NO</label><br>
+                            </div>
+                        </div>
 
                         <div class="sub-title"> <b>34.</b>  Familia que convive con persona que presentan alguna enfermedad transmisible</div>
                         <select name="" class="input_general">
@@ -242,32 +304,77 @@
                             <option value="3">5. Ninguna</option>
                         </select>
 
-                        <div class="sub-title"> <b>35.</b>Familia con vivencia de sucesos vitales normativos y no normativos ( Eventos significativos que inciden de manera positiva o negativa en la 
+                        <div class="sub-title_extend"> <b>35.</b>Familia con vivencia de sucesos vitales normativos y no normativos ( Eventos significativos que inciden de manera positiva o negativa en la 
                             persona y familia por ejemplo: Ingreso de niños estudiar, muerte familiar, accidente que genera discapacidad, separación pareja, entre otros)</div>
-                        <input type="date" class="input_general" name="">
+                                                <div class="checks">
+                            <div class="check">
+                                <input type="radio" id="" name="35" value="SI">
+                                <label for="">SI</label><br>
+                            </div>
+                            <div class="check">
+                                <input type="radio" id="" name="35" value="NO">
+                                <label for="">NO</label><br>
+                            </div>
+                        </div>
                         
-                        <div class="sub-title"> <b>36.</b>Familia en situación de vulnerabilidad social (Consumo de SPA - Alcohol, explotación sexual, trabajo infantil, conflictos interpersonales, 
+                        <div class="sub-title_extend"> <b>36.</b>Familia en situación de vulnerabilidad social (Consumo de SPA - Alcohol, explotación sexual, trabajo infantil, conflictos interpersonales, 
                             violencia intrafamiliar, trastorno mental, entre otras</div>
-                        <input type="date" class="input_general" name="">
+                                                <div class="checks">
+                            <div class="check">
+                                <input type="radio" id="" name="36" value="SI">
+                                <label for="">SI</label><br>
+                            </div>
+                            <div class="check">
+                                <input type="radio" id="" name="36" value="NO">
+                                <label for="">NO</label><br>
+                            </div>
+                        </div>
                         
-                        <div class="sub-title"> <b>37.</b>Familias con prácticas de cuidado de salud críticas de varios de sus integrantes que ponen en riesgo o han afectado en la salud (Hábitos
+                        <div class="sub-title_extend"> <b>37.</b>Familias con prácticas de cuidado de salud críticas de varios de sus integrantes que ponen en riesgo o han afectado en la salud (Hábitos
                             alimentarios, situaciones de abandono)
                             </div>
-                        <input type="date" class="input_general" name="">
+                                                <div class="checks">
+                            <div class="check">
+                                <input type="radio" id="" name="37" value="SI">
+                                <label for="">SI</label><br>
+                            </div>
+                            <div class="check">
+                                <input type="radio" id="" name="37" value="NO">
+                                <label for="">NO</label><br>
+                            </div>
+                        </div>
                         
                         <div class="sub-title"> <b>38.</b>Familia con integrantes con antecedentes de Ca, HTA, Diabetes, Asma, Enfermedad cardiaca, otra</div>
-                        <input type="date" class="input_general" name="">
+                        <div class="checks">
+                            <div class="check">
+                                <input type="radio" id="" name="38" value="SI">
+                                <label for="">SI</label><br>
+                            </div>
+                            <div class="check">
+                                <input type="radio" id="" name="38" value="NO">
+                                <label for="">NO</label><br>
+                            </div>
+                        </div>
                         
                         <div class="sub-title"> <b>38.2.</b>Si la respuesta es si indique cuales</div>
                         <input type="date" class="input_general" name="">
                         
                         <div class="sub-title"> <b>38.3.</b>Recibe tratamiento</div>
-                        <input type="date" class="input_general" name="">
+                        <div class="checks">
+                            <div class="check">
+                                <input type="radio" id="" name="38_3" value="SI">
+                                <label for="">SI</label><br>
+                            </div>
+                            <div class="check">
+                                <input type="radio" id="" name="38_3" value="NO">
+                                <label for="">NO</label><br>
+                            </div>
+                        </div>
                         
                         <div class="sub-title"> <b>39.</b>Cómo obtiene sus alimentos</div>
                         <input type="date" class="input_general" name="">
                         
-                        <div class="sub-title"> <b>39.2.</b>Cuál?</div>
+                        <div class="sub-title" class="ocultar"> <b>39.2.</b>Cuál?</div>
                         <input type="date" class="input_general" name="">
 
 
@@ -283,42 +390,123 @@
 
                     <div class="content_section1_1">
 
-                        <div class="sub-title"> <b>40.</b>  Hábitos de vida saludable adaptado a las condiciones 
+                        <div class="sub-title_extend"> <b>40.</b>  Hábitos de vida saludable adaptado a las condiciones 
                             contextuales y culturales de la familia y sus integrantes. </div>
-                        <input type="text" class="input_general" name="">
+                        <div class="checks">
+                            <div class="check">
+                                <input type="radio" id="" name="40" value="SI">
+                                <label for="">SI</label><br>
+                            </div>
+                            <div class="check">
+                                <input type="radio" id="" name="40" value="NO">
+                                <label for="">NO</label><br>
+                            </div>
+                        </div>
     
-                        <div class="sub-title"> <b>41.</b> Recursos socioemocionales que 
+                        <div class="sub-title-large"> <b>41.</b> Recursos socioemocionales que 
                             potencian el cuidado de la salud de la familia</div>
-                        <input type="text" class="input_general" name="">
+                        <div class="checks">
+                            <div class="check">
+                                <input type="radio" id="" name="41" value="SI">
+                                <label for="">SI</label><br>
+                            </div>
+                            <div class="check">
+                                <input type="radio" id="" name="41" value="NO">
+                                <label for="">NO</label><br>
+                            </div>
+                        </div>
 
                         <div class="sub-title"> <b>42.</b> Prácticas para el cuidado y protección de los entornos </div>
-                        <input type="text" class="input_general" name="">
+                        <div class="checks">
+                            <div class="check">
+                                <input type="radio" id="" name="42" value="SI">
+                                <label for="">SI</label><br>
+                            </div>
+                            <div class="check">
+                                <input type="radio" id="" name="42" value="NO">
+                                <label for="">NO</label><br>
+                            </div>
+                        </div>
     
-                        <div class="sub-title"> <b>43.</b> Prácticas de favorecen el establecimiento 
+                        <div class="sub-title-large"> <b>43.</b> Prácticas de favorecen el establecimiento 
                             de relaciones sanas y constructivas </div>
-                        <input type="text" class="input_general" name="">
+                        <div class="checks">
+                            <div class="check">
+                                <input type="radio" id="" name="43" value="SI">
+                                <label for="">SI</label><br>
+                            </div>
+                            <div class="check">
+                                <input type="radio" id="" name="43" value="NO">
+                                <label for="">NO</label><br>
+                            </div>
+                        </div>
 
-                        <div class="sub-title"> <b>44.</b>  Recursos sociales y comunitarios para el establecimiento 
+                        <div class="sub-title-large"> <b>44.</b>  Recursos sociales y comunitarios para el establecimiento 
                             de redes colectivas para la promoción de la salud. </div>
-                        <input type="text" class="input_general" name="">
+                        <div class="checks">
+                            <div class="check">
+                                <input type="radio" id="" name="44" value="SI">
+                                <label for="">SI</label><br>
+                            </div>
+                            <div class="check">
+                                <input type="radio" id="" name="44" value="NO">
+                                <label for="">NO</label><br>
+                            </div>
+                        </div>
     
-                        <div class="sub-title"> <b>45.</b> Prácticas para la conservación de la autonomía 
+                        <div class="sub-title-large"> <b>45.</b> Prácticas para la conservación de la autonomía 
                             y la capacidad funcional de las personas mayores.</div>
-                        <input type="date" class="input_general" name="">
+                        <div class="checks">
+                            <div class="check">
+                                <input type="radio" id="" name="45" value="SI">
+                                <label for="">SI</label><br>
+                            </div>
+                            <div class="check">
+                                <input type="radio" id="" name="45" value="NO">
+                                <label for="">NO</label><br>
+                            </div>
+                        </div>
                         
-                        <div class="sub-title"> <b>46</b>Prácticas para la prevención 
+                        <div class="sub-title-large"> <b>46</b>Prácticas para la prevención 
                             de enfermedades en todas las edades.</div>
-                        <input type="date" class="input_general" name="">
+                        <div class="checks">
+                            <div class="check">
+                                <input type="radio" id="" name="46" value="SI">
+                                <label for="">SI</label><br>
+                            </div>
+                            <div class="check">
+                                <input type="radio" id="" name="46" value="NO">
+                                <label for="">NO</label><br>
+                            </div>
+                        </div>
                         
-                        <div class="sub-title"> <b>47</b>Prácticas de cuidado desde los saberes ancestrales/tradicionales (aplica para 
+                        <div class="sub-title_extend"> <b>47</b>Prácticas de cuidado desde los saberes ancestrales/tradicionales (aplica para 
                             poblaciones y comunidades indígenas, negras afrocolombianas, raizales, palenqueras y rom)</div>
-                        <input type="date" class="input_general" name="">
+                        <div class="checks">
+                            <div class="check">
+                                <input type="radio" id="" name="47" value="SI">
+                                <label for="">SI</label><br>
+                            </div>
+                            <div class="check">
+                                <input type="radio" id="" name="47" value="NO">
+                                <label for="">NO</label><br>
+                            </div>
+                        </div>
                         
-                        <div class="sub-title"> <b>48</b>Capacidades de las familias para el ejercicio y exigibilidad del derecho a la salud</div>
-                        <input type="date" class="input_general" name="">
+                        <div class="sub-title-large"> <b>48</b>Capacidades de las familias para el ejercicio y exigibilidad del derecho a la salud</div>
+                        <div class="checks">
+                            <div class="check">
+                                <input type="radio" id="" name="48" value="SI">
+                                <label for="">SI</label><br>
+                            </div>
+                            <div class="check">
+                                <input type="radio" id="" name="48" value="NO">
+                                <label for="">NO</label><br>
+                            </div>
+                        </div>
 
                         <div class="sub-title"></div>
-                        <a href="" class="input_general" name="" >Siguiente</a>
+                        <a href="#seccion3" class="input_general" name="" >Siguiente</a>
 
                     </div>
 
@@ -333,7 +521,7 @@
 
         <!-- Seccion 3 Caracterizacion de los integrantes de la familia -->
 
-        <section class="section_1">
+        <section class="section_1" id="seccion3">
 
             <div class="titulo_seccion">3. CARACTERIZACIÓN DE LOS INTEGRANTES DE LA FAMILIA</div>
 
@@ -449,10 +637,16 @@
                           </select>
 
                         <div class="sub-title"> <b>66.</b> El integrante de la familia presenta situaciones o condiciones de salud crónica</div>
-                        <select name="" class="input_general">
-                            <option value="1">SI</option>
-                            <option value="2">NO</option>
-                          </select>
+                        <div class="checks">
+                            <div class="check">
+                                <input type="radio" id="" name="66" value="SI">
+                                <label for="">SI</label><br>
+                            </div>
+                            <div class="check">
+                                <input type="radio" id="" name="66" value="NO">
+                                <label for="">NO</label><br>
+                            </div>
+                        </div>
                         
              
                         
@@ -466,26 +660,62 @@
 
                     <div class="content_section1_1">
 
-                        <div class="sub-title"> <b>67.</b>  Cumple con el esquema de atenciones de promoción y mantenimiento para el momento de curso de vida o para la gestación </div>
-                        <input type="text" class="input_general" name="">
+                        <div class="sub-title-large"> <b>67.</b>  Cumple con el esquema de atenciones de promoción y mantenimiento para el momento de curso de vida o para la gestación </div>
+                        <div class="checks">
+                            <div class="check">
+                                <input type="radio" id="" name="38" value="SI">
+                                <label for="">SI</label><br>
+                            </div>
+                            <div class="check">
+                                <input type="radio" id="" name="38" value="NO">
+                                <label for="">NO</label><br>
+                            </div>
+                        </div>
     
                         <div class="sub-title"> <b>68.</b> Intervenciones pendientes de promoción y mantenimiento de la salud </div>
                         <input type="text" class="input_general" name="">
 
-                        <div class="sub-title"> <b>69.</b> Motivo por el cual no ha recibido las atenciones de promoción y mantenimiento de la salud</div>
+                        <div class="sub-title-large"> <b>69.</b> Motivo por el cual no ha recibido las atenciones de promoción y mantenimiento de la salud</div>
                         <input type="text" class="input_general" name="">
     
                         <div class="sub-title"> <b>70.</b>  ¿Realiza alguna práctica deportiva o realiza ejercicio?</div>
-                        <input type="text" class="input_general" name="">
+                        <div class="checks">
+                            <div class="check">
+                                <input type="radio" id="" name="70" value="SI">
+                                <label for="">SI</label><br>
+                            </div>
+                            <div class="check">
+                                <input type="radio" id="" name="70" value="NO">
+                                <label for="">NO</label><br>
+                            </div>
+                        </div>
 
                         <div class="sub-title"> <b>71.</b>  Si es menor de 6 meses, ¿recibe lactancia materna exclusiva? </div>
-                        <input type="text" class="input_general" name="">
+                        <div class="checks">
+                            <div class="check">
+                                <input type="radio" id="" name="71" value="SI">
+                                <label for="">SI</label><br>
+                            </div>
+                            <div class="check">
+                                <input type="radio" id="" name="71" value="NO">
+                                <label for="">NO</label><br>
+                            </div>
+                        </div>
     
-                        <div class="sub-title"> <b>72.</b> Si es menor de 2 años, ¿hasta cuando recibio lactancia materna? (en meses)</div>
+                        <div class="sub-title -large"> <b>72.</b> Si es menor de 2 años, ¿hasta cuando recibio lactancia materna? (en meses)</div>
                         <input type="date" class="input_general" name="">
 
                         <div class="sub-title"> <b>73.</b>  Es menor de 5 años?</div>
-                        <input type="date" class="input_general" name="">
+                        <div class="checks">
+                            <div class="check">
+                                <input type="radio" id="" name="73" value="SI">
+                                <label for="">SI</label><br>
+                            </div>
+                            <div class="check">
+                                <input type="radio" id="" name="73" value="NO">
+                                <label for="">NO</label><br>
+                            </div>
+                        </div>
 
                         <div class="sub-title"> <b>74.</b> Resultado de toma de medidas antropométricas </div>
                         <input type="date" class="input_general" name="">
@@ -499,27 +729,45 @@
                         <div class="sub-title"> <b>75.</b> Diagnóstico nutricional inidicador Peso para la talla</div>
                         <input type="date" class="input_general" name="">
 
-                        <div class="sub-title"> <b>76.</b>  Medida complementaria identificación de riesgo de muerte por desnutrición aguda , Perimetro Braquial</div>
+                        <div class="sub-title-large"> <b>76.</b>  Medida complementaria identificación de riesgo de muerte por desnutrición aguda , Perimetro Braquial</div>
                         <input type="date" class="input_general" name="">
 
                         <div class="sub-title"> <b>77.</b> Se identifican signos fisicos de desnutrición aguda </div>
                         <input type="date" class="input_general" name="">
 
-                        <div class="sub-title"> <b>78.</b> ¿Actualmente presenta o ha presentado en el último mes alguna enfermedad como: 
+                        <div class="sub-title_extend"> <b>78.</b> ¿Actualmente presenta o ha presentado en el último mes alguna enfermedad como: 
                             Diarrea o soltura de estomago Tos, resfriado, gripa, bronquitis o pulmonía? Problemas 
                             de piel / alergias, accidente casero, familiar o escolar. Alguna otra enfermedad. </div>
-                        <input type="date" class="input_general" name="">
+                            <div class="checks">
+                                <div class="check">
+                                    <input type="radio" id="" name="78" value="SI">
+                                    <label for="">SI</label><br>
+                                </div>
+                                <div class="check">
+                                    <input type="radio" id="" name="78" value="NO">
+                                    <label for="">NO</label><br>
+                                </div>
+                            </div>
 
                         <div class="sub-title"> <b>78.2.</b> Cuales</div>
                         <input type="date" class="input_general" name="">
 
                         <div class="sub-title"> <b>79.</b> ¿Esta recibiendo atención y tratamiento para la enfermedad actual?</div>
+                        <div class="checks">
+                            <div class="check">
+                                <input type="radio" id="" name="79" value="SI">
+                                <label for="">SI</label><br>
+                            </div>
+                            <div class="check">
+                                <input type="radio" id="" name="79" value="NO">
+                                <label for="">NO</label><br>
+                            </div>
+                        </div>
+
+                        <div class="sub-title-large"> <b>80.</b> Si la respuesta a la pregunta anterior es NO. Marque con X el motivo por el cual no ha recibido la atención </div>
                         <input type="date" class="input_general" name="">
 
-                        <div class="sub-title"> <b>80.</b> Si la respuesta a la pregunta anterior es NO. Marque con X el motivo por el cual no ha recibido la atención </div>
-                        <input type="date" class="input_general" name="">
-
-                        <div class="sub-title"> <b>81.</b> Si pertenece a población étnica. Actualmente es acompañado u orientado por algún agente de la medicina tradicional?</div>
+                        <div class="sub-title-large"> <b>81.</b> Si pertenece a población étnica. Actualmente es acompañado u orientado por algún agente de la medicina tradicional?</div>
                         <input type="date" class="input_general" name="">
 
 
@@ -544,83 +792,86 @@
 
         <section class="section_1" id="Seccion4">
 
-            <div class="titulo_seccion">1. INFORMACIÓN GENERAL</div>
+            <div class="titulo_seccion">1. CARACTERIZACIÓN DEL ENTORNO</div>
 
             <div class="contain_subs">
 
                 <!-- SubSeccion 1.1 Datos generales del escenario del entorno que se caracteriza -->
                 <div class="sub_section1_1">
-                    <div class="titulo_seccion">1.1 Datos generales del escenario del entorno que se caracteriza</div>
+                    <div class="titulo_seccion">4.1 Características y condiciones del entorno y de la vivienda</div>
 
 
                     <div class="content_section1_1">
 
-                        <div class="sub-title"> <b>1.</b> Departamento</div>
+                        <div class="sub-title"> <b>82.</b> Departamento</div>
                         <input type="text" class="input_general" name="" list="miLista">
-                        <datalist id="miLista">
-                            <option value="Caqueta">
-                            <option value="Huila">
-                          </datalist>
+                       
 
-                        <div class="sub-title"> <b>2. </b> Unidad Zonal de Planeación y Evaluación - Regional - Provincia</div>
+                        <div class="sub-title"> <b>82.2. </b> Unidad Zonal de Planeación y Evaluación - Regional - Provincia</div>
                         <input type="text" class="input_general" name="">
 
-                        <div class="sub-title"> <b>3.</b> Municipio / Área no municipalizada</div>
+                        <div class="sub-title"> <b>83.</b> Municipio / Área no municipalizada</div>
                         <input type="text" class="input_general" name="">
                         
-                        <div class="sub-title"> <b>4.</b> Territorio</div>
+                        <div class="sub-title"> <b>83.2.</b> Territorio</div>
                         <input type="text" class="input_general" name="">
 
-                        <div class="sub-title"> <b>5.</b> Microterritorio</div>
+                        <div class="sub-title"> <b>84.</b> Microterritorio</div>
                         <input type="text" class="input_general" name="">
 
                         
-                        <div class="sub-title"> <b>6.</b> Corregimiento / Centro de poblado / Vereda / Localidad/ Barrio/ Resguardo Indigena</div>
+                        <div class="sub-title"> <b>84.2.</b> Corregimiento / Centro de poblado / Vereda / Localidad/ Barrio/ Resguardo Indigena</div>
                         <input type="text" class="input_general" name="">
                         
-                        <div class="sub-title"> <b>7.</b> Dirección</div>
+                        <div class="sub-title"> <b>85.</b> Dirección</div>
                         <input type="text" class="input_general" name="">
                         
-                        <div class="sub-title"> <b>8.</b> Geopunto (online-offline) y altitud</div>
+                        <div class="sub-title"> <b>86.</b> Geopunto (online-offline) y altitud</div>
                         <input type="text" class="input_general" name="">
                         
-                        <div class="sub-title"> <b>9.</b> Ubicación del hogar (cuando no se cuenta con nomenclatura, punto de referencia)</div>
+                        <div class="sub-title"> <b>87.</b> Ubicación del hogar (cuando no se cuenta con nomenclatura, punto de referencia)</div>
                         <input type="text" class="input_general" name="">
                         
-                        <div class="sub-title"> <b>10.</b> Número de Identificación de la familia</div>
+                        <div class="sub-title"> <b>88.</b> Número de Identificación de la familia</div>
                         <input type="text" class="input_general" name="">
                         
 
                         
-                        <div class="sub-title"> <b>14.</b> Número de personas en la vivienda</div>
+                        <div class="sub-title"> <b>89.</b> Número de personas en la vivienda</div>
+                        <input type="text" class="input_general" name="">
+
+                        <div class="sub-title"> <b>90.</b> Número de personas en la vivienda</div>
+                        <input type="text" class="input_general" name="">
+
+                        <div class="sub-title"> <b>91.</b> Número de personas en la vivienda</div>
                         <input type="text" class="input_general" name="">
                         
 
                     </div>
                 </div>
 
-                <!-- SubSeccion 1.2 Identificación del encuestador -->
+                <!-- SubSeccion 4.2  Oficios u ocupaciones que se desarrollan en la vivienda o su entorno inmediato (peridomicilio) -->
                 <div class="sub_section1_1">
-                    <div class="titulo_seccion">1.2 Identificación del encuestador</div>
+                    <div class="titulo_seccion">4.2  Oficios u ocupaciones que se desarrollan en la vivienda o su entorno inmediato (peridomicilio)</div>
 
                     <div class="content_section1_1">
 
-                        <div class="sub-title"> <b>15.</b>  Número de identificación del Equipo Básico de Salud (EBS) </div>
+                        <div class="sub-title"> <b>92.</b>  Observe si cerca de la vivienda hay alguno de los siguientes:</div>
                         <input type="text" class="input_general" name="">
     
-                        <div class="sub-title"> <b>16.</b> Prestador primario / Organismo de adscripción del EBS </div>
+                        <div class="sub-title"> <b>92.2.</b>Especifique </div>
                         <input type="text" class="input_general" name="">
 
-                        <div class="sub-title"> <b>17.</b> Responsable de la evaluación de necesidades en salud - caracterización </div>
+                        <div class="sub-title"> <b>93.</b>  ¿Al interior de la vivienda se realiza alguna actividad económica?</div>
                         <input type="text" class="input_general" name="">
     
-                        <div class="sub-title"> <b>18.</b> Perfil de quien realiza la evaluación de necesidades en salud - caracterización</div>
+                        <div class="sub-title-large"> <b>94.</b>  Señale los animales que conviven con la familia dentro de la vivienda o en su entorno inmediato, e indique cuantos son:</div>
                         <input type="text" class="input_general" name="">
 
-                        <div class="sub-title"> <b>19.</b> Código de la ficha </div>
+                        <div class="sub-title"> <b>94.2.</b> Cual? </div>
                         <input type="text" class="input_general" name="">
     
-                        <div class="sub-title"> <b>20.</b> Fecha diligencimiento de la ficha</div>
+                        <div class="sub-title"> <b>94.3.</b> Registrar Cantidad</div>
                         <input type="date" class="input_general" name="">
 
                        
@@ -634,30 +885,24 @@
                 </div>
 
                 <div class="sub_section1_1">
-                    <div class="titulo_seccion">1.2 Identificación del encuestador</div>
+                    <div class="titulo_seccion">1.2 Agua y saneamiento básico</div>
 
                     <div class="content_section1_1">
 
-                        <div class="sub-title"> <b>15.</b>  Número de identificación del Equipo Básico de Salud (EBS) </div>
+                        <div class="sub-title"> <b>95.</b>  ¿Cuál es la principal fuente de abastecimiento de agua para consumo humano en la vivienda?</div>
                         <input type="text" class="input_general" name="">
     
-                        <div class="sub-title"> <b>16.</b> Prestador primario / Organismo de adscripción del EBS </div>
+                        <div class="sub-title"> <b>96.</b> ¿Cuál es el sistema de disposición de excretas en la vivienda? </div>
                         <input type="text" class="input_general" name="">
 
-                        <div class="sub-title"> <b>17.</b> Responsable de la evaluación de necesidades en salud - caracterización </div>
+                        <div class="sub-title"> <b>97.</b> ¿Cuál es el sistema de disposición de aguas residuales domésticas en la vivienda?</div>
                         <input type="text" class="input_general" name="">
     
-                        <div class="sub-title"> <b>18.</b> Perfil de quien realiza la evaluación de necesidades en salud - caracterización</div>
+                        <div class="sub-title"> <b>98.</b>  ¿Como se realiza la disposición final de los residuos sólidos ordinarios de la vivienda?</div>
                         <input type="text" class="input_general" name="">
 
-                        <div class="sub-title"> <b>19.</b> Código de la ficha </div>
-                        <input type="text" class="input_general" name="">
-    
-                        <div class="sub-title"> <b>20.</b> Fecha diligencimiento de la ficha</div>
-                        <input type="date" class="input_general" name="">
 
-                        <div class="sub-title"> <b></b></div>
-                        <a href="#seccion2" class="input_general" name="" >Siguiente</a>
+                        <a href="#seccion2" class="input_general" name="" >FINALIZAR</a>
 
                     </div>
 
