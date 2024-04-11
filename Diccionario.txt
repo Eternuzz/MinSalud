@@ -1,0 +1,13 @@
+mapeo = [
+
+2_UnidadZonal => Unidad Zonal de Planeación y Evaluación - Regional - Provincia,
+3_Municipio =>  Municipio / Área no municipalizada,
+Tid =>TerritorioID,
+TSerial => TerritorioSerial,
+MTid => MicroterritorioID,
+MTSerial=> MicroterritorioSerial,
+6_Corregimiento =>Corregimiento / Centro de poblado / Vereda /  Localidad/ Barrio/ Resguardo Indigena,
+8_Geopunto => Geopunto (online-offline) y altitud
+
+
+]
