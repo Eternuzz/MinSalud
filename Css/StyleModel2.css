@@ -16,7 +16,7 @@ header{
     background-size: cover;
 }
 
-main{
+form{
 
     height: 80%;
     width: 100%;
@@ -62,7 +62,7 @@ main{
 
 @media screen and (max-width:391px){
 
-    main{
+    form{
         margin-top: 1%;
         align-items: center;
         padding-top: 1%;
@@ -158,7 +158,7 @@ main{
     /*inputs*/
     .input_general{
         width: 96%;
-        height: 6%;
+        height: 7%;
         border: none ;
         box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px, rgb(209, 213, 219) 0px 0px 0px 1px inset;
         border-radius: 10px;

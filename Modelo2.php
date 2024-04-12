@@ -1,3 +1,21 @@
+
+<?php
+
+require_once "Php/Conexion.php";
+require_once "Php/Clases/Consultas.php";
+
+$consulta = new Consultas($mysqli);
+
+function valores($Resultados){
+
+    while($filas = mysqli_fetch_array($Resultados)){
+        echo "<option value=".$filas['id'].">".$filas['dato']."</option>";
+    }
+
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,7 +34,7 @@
     </header>
 
 
-    <main>
+    <form action="Php/RegistroForm.php" method="post">
 
         <!-- Seccion 1. Informacion General -->
         <section class="section_1">
@@ -33,63 +51,61 @@
                     <div class="content_section1_1">
 
                         <div class="sub-title"> <b>1.</b> Departamento</div>
-                        <input type="text" class="input_general" name="" list="miLista">
+                        <input type="text" class="input_general" name="1_Departamento" list="miLista">
                         <datalist id="miLista">
-                            <option value="Caqueta">
-                            <option value="Huila">
-                          </datalist>
+                            <?php
+                                valores($consulta->DatesOfTables('1_Departamento'));
+                            ?>
+                        </datalist>
 
                         <div class="sub-title"> <b>2. </b> Unidad Zonal de Planeación y Evaluación - Regional - Provincia</div>
-                        <input type="text" class="input_general" name="">
+                        <input type="text" class="input_general" name="2_UnidadZonal">
 
 
                         <div class="sub-title"> <b>3.</b> Municipio / Área no municipalizada</div>
-                        <input type="text" class="input_general" name="">
+                        <input type="text" class="input_general" name="3_Municipio">
                         
                         <div class="sub-title"> <b>4.</b> Territorio</div>
-                        <input type="text" class="input_general" name="">
+                        <input type="text" class="input_general" name="4_Territorio">
                         <input type="text" class="input_general" name="" placeholder="ID:">
                         <input type="text" class="input_general" name="" placeholder="Serial:">
 
                         <div class="sub-title"> <b>5.</b> Microterritorio</div>
-                        <input type="text" class="input_general" name="">
+                        <input type="text" class="input_general" name="5_Microterritorio">
                         <input type="text" class="input_general" name="" placeholder="ID:">
                         <input type="text" class="input_general" name="" placeholder="Serial:">
                         
                         <div class="sub-title"> <b>6.</b> Corregimiento / Centro de poblado / Vereda / Localidad/ Barrio/ Resguardo Indigena</div>
-                        <input type="text" class="input_general" name="">
+                        <input type="text" class="input_general" name="6_Corregimiento">
                         
                         <div class="sub-title"> <b>7.</b> Dirección</div>
-                        <input type="text" class="input_general" name="">
+                        <input type="text" class="input_general" name="7_Direccion">
                         
                         <div class="sub-title"> <b>8.</b> Geopunto (online-offline) y altitud</div>
-                        <input type="text" class="input_general" name="">
+                        <input type="text" class="input_general" name="8_Geopunto">
                         
                         <div class="sub-title"> <b>9.</b> Ubicación del hogar (cuando no se cuenta con nomenclatura, punto de referencia)</div>
-                        <input type="text" class="input_general" name="">
+                        <input type="text" class="input_general" name="9_UbicacionHogar">
                         
                         <div class="sub-title"> <b>10.</b> Número de Identificación de la familia</div>
-                        <input type="number" class="input_general" name="">
+                        <input type="number" class="input_general" name="10_NumIdFamilia">
                         
                         <div class="sub-title"> <b>11.</b> Estrato socieconómico de la vivienda</div>
                         <!-- <input type="text" class="input_general" name=""> -->
-                        <select name="" class="input_general">
-                            <option value="1">1. Bajo-Bajo</option>
-                            <option value="2">2. Bajo</option>
-                            <option value="3">3. Medio-Bajo</option>
-                            <option value="4">4. Medio</option>
-                            <option value="4">5. Medio-Alto</option>
-                            <option value="4">6. Alto</option>
-                          </select>
+                        <select name="11_EstratoSoc" class="input_general">
+                        <?php
+                                valores($consulta->DatesOfTables('11_EstratoSoc'));
+                            ?>
+                        </select>
                         
                         <div class="sub-title"> <b>12.</b>  Número de hogares en la vivienda</div>
-                        <input type="number" class="input_general" name="">
+                        <input type="number" class="input_general" name="12_NumHogares">
                         
                         <div class="sub-title"> <b>13.</b> Número de familias en la vivienda</div>
-                        <input type="number" class="input_general" name="">
+                        <input type="number" class="input_general" name="13_NumFamilias">
                         
                         <div class="sub-title"> <b>14.</b> Número de personas en la vivienda</div>
-                        <input type="number" class="input_general" name="">
+                        <input type="number" class="input_general" name="14_NumPersonas">
                         
 
                     </div>
@@ -102,22 +118,22 @@
                     <div class="content_section1_1">
 
                         <div class="sub-title"> <b>15.</b>  Número de identificación del Equipo Básico de Salud (EBS) </div>
-                        <input type="text" class="input_general" name="">
+                        <input type="text" class="input_general" name="15_IdEBS">
     
                         <div class="sub-title"> <b>16.</b> Prestador primario / Organismo de adscripción del EBS </div>
-                        <input type="text" class="input_general" name="">
+                        <input type="text" class="input_general" name="16_PrestadorPrim">
 
                         <div class="sub-title"> <b>17.</b> Responsable de la evaluación de necesidades en salud - caracterización </div>
-                        <input type="text" class="input_general" name="">
+                        <input type="text" class="input_general" name="17_RespEvaluacion">
     
                         <div class="sub-title"> <b>18.</b> Perfil de quien realiza la evaluación de necesidades en salud - caracterización</div>
-                        <input type="text" class="input_general" name="">
+                        <input type="text" class="input_general" name="18_PerfilEvaluador">
 
                         <div class="sub-title"> <b>19.</b> Código de la ficha </div>
-                        <input type="number" class="input_general" name="">
+                        <input type="number" class="input_general" name="19_CodigoFicha">
     
                         <div class="sub-title"> <b>20.</b> Fecha diligencimiento de la ficha</div>
-                        <input type="date" class="input_general" name="">
+                        <input type="date" class="input_general" name="20_FechaDilig">
 
                         <div class="sub-title"> <b></b></div>
                         <a href="#seccion2" class="input_general" name="" >Siguiente</a>
@@ -152,40 +168,40 @@
                     <div class="content_section1_1">
 
                         <div class="sub-title"> <b>21.</b> Tipo de familia</div>
-                        <select name="" class="input_general">
-                            <option value="1">1. Nuclear biparental</option>
-                            <option value="2">2. Nuclear monoparenta</option>
-                            <option value="3">3. Extenso biparental</option>
-                            <option value="4">4. Extenso monoparental</option>
-                            <option value="4">5. Compuesto biparental</option>
-                            <option value="4">6. Compuesto monoparental</option>
-                            <option value="4">7. Unipersonal</option>
+                        <select name="21_TipoFamilia" class="input_general">
+                        <?php
+                                valores($consulta->DatesOfTables('21_TipoFamilia'));
+                            ?>
                           </select>
 
 
                         <div class="sub-title"> <b>22. </b> Número de personas que conforman la familia</div>
-                        <input type="text" class="input_general" name="">
+                        <input type="text" class="input_general" name="22_NumPerFamilia">
                       
 
                         <div class="sub-title"> <b>23.</b> Estructura y dinámica familiar (Diligenciamiento Familiograma) </div>
-                        <input type="text" class="input_general" name="">
+                        <select  class="input_general" name="23_EstrucDinamica">
+                        <?php
+                                valores($consulta->DatesOfTables('23_EstrucDinamica'));
+                            ?>
+                        </select>
                         
                         <div class="sub-title"> <b>24.</b> Funcionalidad de la familia (Apgar familiar)</div>
-                        <select name="" class="input_general">
-                            <option value="1">0 a 3 puntos. Disfunción familiar</option>
-                            <option value="2">4 a 6 puntos. Funcionalidad moderada</option>
-                            <option value="3">4 a 6 puntos. Alta Funcionalidad</option>
+                        <select name="24_FuncFamilia" class="input_general">
+                        <?php
+                                valores($consulta->DatesOfTables('24_FuncFamilia'));
+                            ?>
                           </select>
 
 
                         <div class="sub-title-large"> <b>25.</b> En la familia se identifica un cuidador principal de niños, niñas, persona con discapacidad, adulto mayor o enfermedad?</div>
                         <div class="checks">
                             <div class="check">
-                                <input type="radio" id="opcion1" name="25" value="SI">
+                                <input type="radio" id="opcion1" name="25_CuidadorPrinc" value="SI">
                                 <label for="opcion1">SI</label><br>
                             </div>
                             <div class="check">
-                                <input type="radio" id="opcion2" name="25" value="NO">
+                                <input type="radio" id="opcion2" name="25_CuidadorPrinc" value="NO">
                                 <label for="opcion2">NO</label><br>
                             </div>
                         </div>
@@ -193,20 +209,17 @@
                         
                         <div class="sub-title_extend"> <b>26.</b>Si la respuesta anterior es SI aplicar escala ZARIT y registre aquí el resultado 
                             -puntaje para determinar si se requiere intervención individual o familiar</div>
-                            <select name="" class="input_general">
-                                <option value="1">1. Ausencia de sobrecarga (≤ 46) </option>
-                                <option value="2">2. Sobrecarga ligera (47-55)</option>
-                                <option value="3">3. Sobrecarga intensa (≥ 56)
-                                </option>
+                            <select name="26_EscalaZarit" class="input_general">
+                            <?php
+                                valores($consulta->DatesOfTables('26_EscalaZarit'));
+                            ?>
                             </select>
                         
                         <div class="sub-title"> <b>27.</b> Interrelaciones de la familia con el contexto socio cultural (diligenciar ECOMAPA) </div>
-                        <select name="" class="input_general">
-                            <option value="1">1. Positivo</option>
-                            <option value="2">2. Tenue</option>
-                            <option value="3">3. Estresante</option>
-                            <option value="3">4. Energía Fluye</option>
-                            <option value="3">5. Intenso</option>
+                        <select name="27_Interrelaciones" class="input_general">
+                        <?php
+                                valores($consulta->DatesOfTables('27_Interrelaciones'));
+                            ?>
                           </select>
 
                     </div>
@@ -221,11 +234,11 @@
                         <div class="sub-title"> <b>28.</b> Familia con niñas, niños y adolescentes </div>
                                                 <div class="checks">
                             <div class="check">
-                                <input type="radio" id="" name="28" value="SI">
+                                <input type="radio" id="" name="28_FamNiñosAdoles" value="SI">
                                 <label for="">SI</label><br>
                             </div>
                             <div class="check">
-                                <input type="radio" id="" name="28" value="NO">
+                                <input type="radio" id="" name="28_FamNiñosAdoles" value="NO">
                                 <label for="">NO</label><br>
                             </div>
                         </div>
@@ -233,11 +246,11 @@
                         <div class="sub-title"> <b>29.</b> Gestante en la familia</div>
                                                 <div class="checks">
                             <div class="check">
-                                <input type="radio" id="" name="29" value="SI">
+                                <input type="radio" id="" name="29_GestanteFam" value="SI">
                                 <label for="">SI</label><br>
                             </div>
                             <div class="check">
-                                <input type="radio" id="" name="29" value="NO">
+                                <input type="radio" id="" name="29_GestanteFam" value="NO">
                                 <label for="">NO</label><br>
                             </div>
                         </div>
@@ -245,11 +258,11 @@
                         <div class="sub-title"> <b>30.</b> Familia con personas adultos mayores </div>
                                                 <div class="checks">
                             <div class="check">
-                                <input type="radio" id="" name="30" value="SI">
+                                <input type="radio" id="" name="30_FamAdultMayores" value="SI">
                                 <label for="">SI</label><br>
                             </div>
                             <div class="check">
-                                <input type="radio" id="" name="30" value="NO">
+                                <input type="radio" id="" name="30_FamAdultMayores" value="NO">
                                 <label for="">NO</label><br>
                             </div>
                         </div>
@@ -257,11 +270,11 @@
                         <div class="sub-title"> <b>31.</b> Familia víctima del conflicto armado </div>
                                                 <div class="checks">
                             <div class="check">
-                                <input type="radio" id="" name="31" value="SI">
+                                <input type="radio" id="" name="31_FamVicConflicto" value="SI">
                                 <label for="">SI</label><br>
                             </div>
                             <div class="check">
-                                <input type="radio" id="" name="31" value="NO">
+                                <input type="radio" id="" name="31_FamVicConflicto" value="NO">
                                 <label for="">NO</label><br>
                             </div>
                         </div>
@@ -269,11 +282,11 @@
                         <div class="sub-title"> <b>32.</b>  Familia que convive con personas con discapacidad </div>
                         <div class="checks">
                             <div class="check">
-                                <input type="radio" id="" name="32" value="SI">
+                                <input type="radio" id="" name="32_FamDiscapacidad" value="SI">
                                 <label for="">SI</label><br>
                             </div>
                             <div class="check">
-                                <input type="radio" id="" name="32" value="NO">
+                                <input type="radio" id="" name="32_FamDiscapacidad" value="NO">
                                 <label for="">NO</label><br>
                             </div>
                         </div>
@@ -281,38 +294,31 @@
                         <div class="sub-title-large"> <b>33.</b> Familia que convive con personas que presentan alguna enfermedad crónica,huérfana o en estado terminal</div>
                         <div class="checks">
                             <div class="check">
-                                <input type="radio" id="" name="33" value="SI">
+                                <input type="radio" id="" name="33_FamEnfCronica" value="SI">
                                 <label for="">SI</label><br>
                             </div>
                             <div class="check">
-                                <input type="radio" id="" name="33" value="NO">
+                                <input type="radio" id="" name="33_FamEnfCronica" value="NO">
                                 <label for="">NO</label><br>
                             </div>
                         </div>
 
                         <div class="sub-title"> <b>34.</b>  Familia que convive con persona que presentan alguna enfermedad transmisible</div>
-                        <select name="" class="input_general">
-                            <option value="1">1. TB</option>
-                            <option value="2">2. Lepra</option>
-                            <option value="3">3. Escabiosos, enfermedades infecciosas de la piel u otras</option>
-                            <option value="3">4. Malaria</option>
-                            <option value="3">5. Dengue</option>
-                            <option value="3">5. Chagas</option>
-                            <option value="3">5. Hepatitis A</option>
-                            <option value="3">5. Alguna enfermedad inmunoprevenible ( varicela- parotiditis, otra)</option>
-                            <option value="3">5. Otras</option>
-                            <option value="3">5. Ninguna</option>
+                        <select name="34_FamEnfTrans" class="input_general">
+                        <?php
+                                valores($consulta->DatesOfTables('34_FamEnfTrans'));
+                            ?>
                         </select>
 
                         <div class="sub-title_extend"> <b>35.</b>Familia con vivencia de sucesos vitales normativos y no normativos ( Eventos significativos que inciden de manera positiva o negativa en la 
                             persona y familia por ejemplo: Ingreso de niños estudiar, muerte familiar, accidente que genera discapacidad, separación pareja, entre otros)</div>
                                                 <div class="checks">
                             <div class="check">
-                                <input type="radio" id="" name="35" value="SI">
+                                <input type="radio" id="" name="35_FamSucesosVit" value="SI">
                                 <label for="">SI</label><br>
                             </div>
                             <div class="check">
-                                <input type="radio" id="" name="35" value="NO">
+                                <input type="radio" id="" name="35_FamSucesosVit" value="NO">
                                 <label for="">NO</label><br>
                             </div>
                         </div>
@@ -321,11 +327,11 @@
                             violencia intrafamiliar, trastorno mental, entre otras</div>
                                                 <div class="checks">
                             <div class="check">
-                                <input type="radio" id="" name="36" value="SI">
+                                <input type="radio" id="" name="36_FamVulnSocial" value="SI">
                                 <label for="">SI</label><br>
                             </div>
                             <div class="check">
-                                <input type="radio" id="" name="36" value="NO">
+                                <input type="radio" id="" name="36_FamVulnSocial" value="NO">
                                 <label for="">NO</label><br>
                             </div>
                         </div>
@@ -335,11 +341,11 @@
                             </div>
                                                 <div class="checks">
                             <div class="check">
-                                <input type="radio" id="" name="37" value="SI">
+                                <input type="radio" id="" name="37_PracCuidadoSalud" value="SI">
                                 <label for="">SI</label><br>
                             </div>
                             <div class="check">
-                                <input type="radio" id="" name="37" value="NO">
+                                <input type="radio" id="" name="37_PracCuidadoSalud" value="NO">
                                 <label for="">NO</label><br>
                             </div>
                         </div>
@@ -347,11 +353,11 @@
                         <div class="sub-title"> <b>38.</b>Familia con integrantes con antecedentes de Ca, HTA, Diabetes, Asma, Enfermedad cardiaca, otra</div>
                         <div class="checks">
                             <div class="check">
-                                <input type="radio" id="" name="38" value="SI">
+                                <input type="radio" id="" name="38_AntecEnfermedades" value="SI">
                                 <label for="">SI</label><br>
                             </div>
                             <div class="check">
-                                <input type="radio" id="" name="38" value="NO">
+                                <input type="radio" id="" name="38_AntecEnfermedades" value="NO">
                                 <label for="">NO</label><br>
                             </div>
                         </div>
@@ -372,7 +378,11 @@
                         </div>
                         
                         <div class="sub-title"> <b>39.</b>Cómo obtiene sus alimentos</div>
-                        <input type="date" class="input_general" name="">
+                        <select class="input_general" name="39_ObtAlimentos">
+                        <?php
+                                valores($consulta->DatesOfTables('39_ObtAlimentos'));
+                            ?>
+                        </select>
                         
                         <div class="sub-title" class="ocultar"> <b>39.2.</b>Cuál?</div>
                         <input type="date" class="input_general" name="">
@@ -394,11 +404,11 @@
                             contextuales y culturales de la familia y sus integrantes. </div>
                         <div class="checks">
                             <div class="check">
-                                <input type="radio" id="" name="40" value="SI">
+                                <input type="radio" id="" name="40_HabitosSaludables" value="SI">
                                 <label for="">SI</label><br>
                             </div>
                             <div class="check">
-                                <input type="radio" id="" name="40" value="NO">
+                                <input type="radio" id="" name="40_HabitosSaludables" value="NO">
                                 <label for="">NO</label><br>
                             </div>
                         </div>
@@ -407,11 +417,11 @@
                             potencian el cuidado de la salud de la familia</div>
                         <div class="checks">
                             <div class="check">
-                                <input type="radio" id="" name="41" value="SI">
+                                <input type="radio" id="" name="41_RecSocioemocionales" value="SI">
                                 <label for="">SI</label><br>
                             </div>
                             <div class="check">
-                                <input type="radio" id="" name="41" value="NO">
+                                <input type="radio" id="" name="41_RecSocioemocionales" value="NO">
                                 <label for="">NO</label><br>
                             </div>
                         </div>
@@ -419,11 +429,11 @@
                         <div class="sub-title"> <b>42.</b> Prácticas para el cuidado y protección de los entornos </div>
                         <div class="checks">
                             <div class="check">
-                                <input type="radio" id="" name="42" value="SI">
+                                <input type="radio" id="" name="42_PracCuidadoEnt" value="SI">
                                 <label for="">SI</label><br>
                             </div>
                             <div class="check">
-                                <input type="radio" id="" name="42" value="NO">
+                                <input type="radio" id="" name="42_PracCuidadoEnt" value="NO">
                                 <label for="">NO</label><br>
                             </div>
                         </div>
@@ -432,11 +442,11 @@
                             de relaciones sanas y constructivas </div>
                         <div class="checks">
                             <div class="check">
-                                <input type="radio" id="" name="43" value="SI">
+                                <input type="radio" id="" name="43_PracRelSanas" value="SI">
                                 <label for="">SI</label><br>
                             </div>
                             <div class="check">
-                                <input type="radio" id="" name="43" value="NO">
+                                <input type="radio" id="" name="43_PracRelSanas" value="NO">
                                 <label for="">NO</label><br>
                             </div>
                         </div>
@@ -445,11 +455,11 @@
                             de redes colectivas para la promoción de la salud. </div>
                         <div class="checks">
                             <div class="check">
-                                <input type="radio" id="" name="44" value="SI">
+                                <input type="radio" id="" name="44_RecSocComunitarios" value="SI">
                                 <label for="">SI</label><br>
                             </div>
                             <div class="check">
-                                <input type="radio" id="" name="44" value="NO">
+                                <input type="radio" id="" name="44_RecSocComunitarios" value="NO">
                                 <label for="">NO</label><br>
                             </div>
                         </div>
@@ -458,11 +468,11 @@
                             y la capacidad funcional de las personas mayores.</div>
                         <div class="checks">
                             <div class="check">
-                                <input type="radio" id="" name="45" value="SI">
+                                <input type="radio" id="" name="45_PracConsAutonomia" value="SI">
                                 <label for="">SI</label><br>
                             </div>
                             <div class="check">
-                                <input type="radio" id="" name="45" value="NO">
+                                <input type="radio" id="" name="45_PracConsAutonomia" value="NO">
                                 <label for="">NO</label><br>
                             </div>
                         </div>
@@ -471,11 +481,11 @@
                             de enfermedades en todas las edades.</div>
                         <div class="checks">
                             <div class="check">
-                                <input type="radio" id="" name="46" value="SI">
+                                <input type="radio" id="" name="46_PracPrevEnferm" value="SI">
                                 <label for="">SI</label><br>
                             </div>
                             <div class="check">
-                                <input type="radio" id="" name="46" value="NO">
+                                <input type="radio" id="" name="46_PracPrevEnferm" value="NO">
                                 <label for="">NO</label><br>
                             </div>
                         </div>
@@ -484,11 +494,11 @@
                             poblaciones y comunidades indígenas, negras afrocolombianas, raizales, palenqueras y rom)</div>
                         <div class="checks">
                             <div class="check">
-                                <input type="radio" id="" name="47" value="SI">
+                                <input type="radio" id="" name="47_PracCuidadoAncestrales" value="SI">
                                 <label for="">SI</label><br>
                             </div>
                             <div class="check">
-                                <input type="radio" id="" name="47" value="NO">
+                                <input type="radio" id="" name="47_PracCuidadoAncestrales" value="NO">
                                 <label for="">NO</label><br>
                             </div>
                         </div>
@@ -496,11 +506,11 @@
                         <div class="sub-title-large"> <b>48</b>Capacidades de las familias para el ejercicio y exigibilidad del derecho a la salud</div>
                         <div class="checks">
                             <div class="check">
-                                <input type="radio" id="" name="48" value="SI">
+                                <input type="radio" id="" name="48_CapDerechoSalud" value="SI">
                                 <label for="">SI</label><br>
                             </div>
                             <div class="check">
-                                <input type="radio" id="" name="48" value="NO">
+                                <input type="radio" id="" name="48_CapDerechoSalud" value="NO">
                                 <label for="">NO</label><br>
                             </div>
                         </div>
@@ -535,20 +545,20 @@
                     <div class="content_section1_1">
 
                         <div class="sub-title"> <b>49.</b>   Primer Nombre</div>
-                        <input type="text" class="input_general" name="" >
+                        <input type="text" class="input_general" name="49_PrimerNombre" >
 
 
                         <div class="sub-title"> <b>50. </b> Segundo Nombre</div>
-                        <input type="text" class="input_general" name="">
+                        <input type="text" class="input_general" name="50_SegundoNombre">
 
                         <div class="sub-title"> <b>51.</b> Primer Apellido</div>
-                        <input type="text" class="input_general" name="">
+                        <input type="text" class="input_general" name="51_PrimerApellido">
                         
                         <div class="sub-title"> <b>52.</b> Segundo Apellido</div>
-                        <input type="text" class="input_general" name="">
+                        <input type="text" class="input_general" name="52_SegundoApellido">
 
                         <div class="sub-title"> <b>53.</b> Tipo de identificación</div>
-                        <input type="text" class="input_general" name="" list="tipoid">
+                        <input type="text" class="input_general" name="53_TipoIdent" list="tipoid">
                         <datalist id="tipoid">
                             <option value="Cedula De Ciudadania">
                             <option value="Cedula De Extranjeria">
@@ -558,92 +568,73 @@
 
                         
                         <div class="sub-title"> <b>54.</b>  Número de identificación</div>
-                        <input type="number" class="input_general" name="">
+                        <input type="number" class="input_general" name="54_NumIdent">
                         
                         <div class="sub-title"> <b>55.</b> Fecha de nacimiento</div>
-                        <input type="date" class="input_general" name="">
+                        <input type="date" class="input_general" name="55_FechaNac">
                         
                         <div class="sub-title"> <b>56.</b>  Sexo</div>
-                        <select name="" class="input_general">
-                            <option value="1">1. Hombre</option>
-                            <option value="2">2. Mujer</option>
-                            <option value="3">3. indeterminado</option>
+                        <select name="56_Sexo" class="input_general">
+                        <?php
+                                valores($consulta->DatesOfTables('56_Sexo'));
+                            ?>
                           </select>
                         
                         <div class="sub-title"> <b>57.</b> Rol dentro de la familia</div>
-                        <select name="" class="input_general">
-                            <option value="1">1. Jefe(a) de familia</option>
-                            <option value="2">2. Cónyuge o compañero(a)</option>
-                            <option value="3">3. Hijo(a)</option>
-                            <option value="3">4. Hermano(a)</option>
-                            <option value="3">5. Padre o madre</option>
-                            <option value="3">6. Otro</option>
+                        <select name="57_RolFamilia" class="input_general">
+                        <?php
+                                valores($consulta->DatesOfTables('57_RolFamilia'));
+                            ?>
                           </select>
                         
                         <div class="sub-title"> <b>58.</b>  Ocupación</div>
-                        <input type="text" class="input_general" name="">
+                        <input type="text" class="input_general" name="58_Ocupacion">
 
                         <div class="sub-title"> <b>59.</b>  Nivel Educativo</div>
-                        <input type="text" class="input_general" name="">
+                        <input type="text" class="input_general" name="59_NivelEdu">
 
                         <div class="sub-title"> <b>60.</b>  Régimen de afiliación</div>
-                        <select name="" class="input_general">
-                            <option value="1">1. Subsidiado</option>
-                            <option value="2">2. Contributivo</option>
-                            <option value="3">3. Especial</option>
-                            <option value="3">4. Excepcion</option>
-                            <option value="3">5. No Afiliado</option>
+                        <select name="60_RegimenAfiliacion" class="input_general">
+                        <?php
+                                valores($consulta->DatesOfTables('60_RegimenAfiliacion'));
+                            ?>
                           </select>
 
                         <div class="sub-title"> <b>61.</b> EAPB</div>
-                        <input type="text" class="input_general" name="">
+                        <input type="text" class="input_general" name="61_EAPB">
 
                         <div class="sub-title"> <b>62.</b> Pertenencia a un grupo poblacional de especial protección</div>
-                        <select name="" class="input_general">
-                            <option value="1">1.  Niñas, niños y adolescentes</option>
-                            <option value="2">2. Gestantes</option>
-                            <option value="3">3. Personas adulta mayor</option>
-                            <option value="3">4. Persona con condición de discapacidad</option>
-                            <option value="3">5. Personas con orientación sexual diversa</option>
-                            <option value="3">6.  Víctimas de violencia</option>
-                            <option value="3">7. Ninguna</option>
+                        <select name="62_GrupoEspecial" class="input_general">
+                        <?php
+                                valores($consulta->DatesOfTables('62_GrupoEspecial'));
+                            ?>
                           </select>
 
                         <div class="sub-title"> <b>63.</b> Pertenencia étnica</div>
-                        <select name="" class="input_general">
-                            <option value="1">1. Indigena</option>
-                            <option value="2">2. ROM(Gitano)</option>
-                            <option value="3">3. Raizal</option>
-                            <option value="3">4. Palenquero</option>
-                            <option value="3">5. Negro, Mulato, Afro</option>
-                            <option value="3">6. Otra</option>
-                            <option value="3">7. Niguna</option>
+                        <select name="63_PertenenciaEtnica" class="input_general">
+                        <?php
+                                valores($consulta->DatesOfTables('63_PertenenciaEtnica'));
+                            ?>
                           </select>
 
                         <div class="sub-title"> <b>64.</b> Comunidad o pueblo indígena</div>
-                        <input type="text" class="input_general" name="">
+                        <input type="text" class="input_general" name="64_ComunPuebloInd">
 
                         <div class="sub-title"> <b>65.</b> Reconoce alguna discapacidad</div>
-                        <select name="" class="input_general">
-                            <option value="1">1. Física</option>
-                            <option value="2">2. Auditiva</option>
-                            <option value="3">3. Visual</option>
-                            <option value="3">4. Sordoceguera</option>
-                            <option value="3">5. Intelectual</option>
-                            <option value="3">6. Psicosocial (mental)</option>
-                            <option value="3">7. Múltiple</option>
-                            <option value="3">8. Otra</option>
-                            <option value="3">9. Niguna</option>
+                        <select name="65_Discapacidad" class="input_general">
+                        <?php
+                                valores($consulta->DatesOfTables('65_Discapacidad'));
+                            ?>
                           </select>
 
                         <div class="sub-title"> <b>66.</b> El integrante de la familia presenta situaciones o condiciones de salud crónica</div>
                         <div class="checks">
                             <div class="check">
-                                <input type="radio" id="" name="66" value="SI">
+                                <input type="radio" id="" name="66_CondSaludCronica" value="SI">
                                 <label for="">SI</label><br>
                             </div>
                             <div class="check">
-                                <input type="radio" id="" name="66" value="NO">
+                                <input type="radio" id="" name="66_CondSaludCronica" value="NO">
                                 <label for="">NO</label><br>
                             </div>
                         </div>
@@ -663,29 +654,37 @@
                         <div class="sub-title-large"> <b>67.</b>  Cumple con el esquema de atenciones de promoción y mantenimiento para el momento de curso de vida o para la gestación </div>
                         <div class="checks">
                             <div class="check">
-                                <input type="radio" id="" name="38" value="SI">
+                                <input type="radio" id="" name="67_EsquemaPromocion" value="SI">
                                 <label for="">SI</label><br>
                             </div>
                             <div class="check">
-                                <input type="radio" id="" name="38" value="NO">
+                                <input type="radio" id="" name="67_EsquemaPromocion" value="NO">
                                 <label for="">NO</label><br>
                             </div>
                         </div>
     
                         <div class="sub-title"> <b>68.</b> Intervenciones pendientes de promoción y mantenimiento de la salud </div>
-                        <input type="text" class="input_general" name="">
+                        <select class="input_general" name="68_IntervPendientes">
+                        <?php
+                                valores($consulta->DatesOfTables('68_IntervPendientes'));
+                            ?>
+                        </select>
 
                         <div class="sub-title-large"> <b>69.</b> Motivo por el cual no ha recibido las atenciones de promoción y mantenimiento de la salud</div>
-                        <input type="text" class="input_general" name="">
+                        <select class="input_general" name="69_MotivoNoAtencion">
+                        <?php
+                                valores($consulta->DatesOfTables('69_MotivoNoAtencion'));
+                            ?>
+                        </select>
     
                         <div class="sub-title"> <b>70.</b>  ¿Realiza alguna práctica deportiva o realiza ejercicio?</div>
                         <div class="checks">
                             <div class="check">
-                                <input type="radio" id="" name="70" value="SI">
+                                <input type="radio" id="" name="70_PracDeportiva" value="SI">
                                 <label for="">SI</label><br>
                             </div>
                             <div class="check">
-                                <input type="radio" id="" name="70" value="NO">
+                                <input type="radio" id="" name="70_PracDeportiva" value="NO">
                                 <label for="">NO</label><br>
                             </div>
                         </div>
@@ -693,32 +692,32 @@
                         <div class="sub-title"> <b>71.</b>  Si es menor de 6 meses, ¿recibe lactancia materna exclusiva? </div>
                         <div class="checks">
                             <div class="check">
-                                <input type="radio" id="" name="71" value="SI">
+                                <input type="radio" id="" name="71_LactMatExclusiva" value="SI">
                                 <label for="">SI</label><br>
                             </div>
                             <div class="check">
-                                <input type="radio" id="" name="71" value="NO">
+                                <input type="radio" id="" name="71_LactMatExclusiva" value="NO">
                                 <label for="">NO</label><br>
                             </div>
                         </div>
     
                         <div class="sub-title -large"> <b>72.</b> Si es menor de 2 años, ¿hasta cuando recibio lactancia materna? (en meses)</div>
-                        <input type="date" class="input_general" name="">
+                        <input type="date" class="input_general" name="72_DuracLactMat">
 
                         <div class="sub-title"> <b>73.</b>  Es menor de 5 años?</div>
                         <div class="checks">
                             <div class="check">
-                                <input type="radio" id="" name="73" value="SI">
+                                <input type="radio" id="" name="73_Menor5Años" value="SI">
                                 <label for="">SI</label><br>
                             </div>
                             <div class="check">
-                                <input type="radio" id="" name="73" value="NO">
+                                <input type="radio" id="" name="73_Menor5Años" value="NO">
                                 <label for="">NO</label><br>
                             </div>
                         </div>
 
                         <div class="sub-title"> <b>74.</b> Resultado de toma de medidas antropométricas </div>
-                        <input type="date" class="input_general" name="">
+                        <input type="date" class="input_general" name="74_MedidasAntrop">
 
                         <div class="sub-title"> <b>74.1.</b>  Peso (en Kilogramos) </div>
                         <input type="date" class="input_general" name="">
@@ -727,24 +726,32 @@
                         <input type="date" class="input_general" name="">
 
                         <div class="sub-title"> <b>75.</b> Diagnóstico nutricional inidicador Peso para la talla</div>
-                        <input type="date" class="input_general" name="">
+                        <select class="input_general" name="75_DiagNutric">
+                        <?php
+                                valores($consulta->DatesOfTables('75_DiagNutric'));
+                            ?>
+                        </select>
 
                         <div class="sub-title-large"> <b>76.</b>  Medida complementaria identificación de riesgo de muerte por desnutrición aguda , Perimetro Braquial</div>
-                        <input type="date" class="input_general" name="">
+                        <input type="date" class="input_general" name="76_RiesgoMuerteDesnutr">
 
                         <div class="sub-title"> <b>77.</b> Se identifican signos fisicos de desnutrición aguda </div>
-                        <input type="date" class="input_general" name="">
+                        <select class="input_general" name="77_SignosDesnutrAguda">
+                        <?php
+                                valores($consulta->DatesOfTables('77_SignosDesnutrAguda'));
+                            ?>
+                        </select>
 
                         <div class="sub-title_extend"> <b>78.</b> ¿Actualmente presenta o ha presentado en el último mes alguna enfermedad como: 
                             Diarrea o soltura de estomago Tos, resfriado, gripa, bronquitis o pulmonía? Problemas 
                             de piel / alergias, accidente casero, familiar o escolar. Alguna otra enfermedad. </div>
                             <div class="checks">
                                 <div class="check">
-                                    <input type="radio" id="" name="78" value="SI">
+                                    <input type="radio" id="" name="78_EnfermedadMes" value="SI">
                                     <label for="">SI</label><br>
                                 </div>
                                 <div class="check">
-                                    <input type="radio" id="" name="78" value="NO">
+                                    <input type="radio" id="" name="78_EnfermedadMes" value="NO">
                                     <label for="">NO</label><br>
                                 </div>
                             </div>
@@ -755,20 +762,28 @@
                         <div class="sub-title"> <b>79.</b> ¿Esta recibiendo atención y tratamiento para la enfermedad actual?</div>
                         <div class="checks">
                             <div class="check">
-                                <input type="radio" id="" name="79" value="SI">
+                                <input type="radio" id="" name="79_AtencionEnfermedad" value="SI">
                                 <label for="">SI</label><br>
                             </div>
                             <div class="check">
-                                <input type="radio" id="" name="79" value="NO">
+                                <input type="radio" id="" name="79_AtencionEnfermedad" value="NO">
                                 <label for="">NO</label><br>
                             </div>
                         </div>
 
                         <div class="sub-title-large"> <b>80.</b> Si la respuesta a la pregunta anterior es NO. Marque con X el motivo por el cual no ha recibido la atención </div>
-                        <input type="date" class="input_general" name="">
+                        <select class="input_general" name="80_MotivoSinAtencion">
+                        <?php
+                                valores($consulta->DatesOfTables('80_MotivoSinAtencion'));
+                            ?>
+                        </select>
 
                         <div class="sub-title-large"> <b>81.</b> Si pertenece a población étnica. Actualmente es acompañado u orientado por algún agente de la medicina tradicional?</div>
-                        <input type="date" class="input_general" name="">
+                        <select class="input_general" name="81_MedicinaTradicional">
+                        <?php
+                                valores($consulta->DatesOfTables('81_MedicinaTradicional'));
+                            ?>
+                            </select>
 
 
                         <div class="sub-title"> <b></b></div>
@@ -790,9 +805,9 @@
 
         <!-- Seccion 4 Caracterizacion del entorno -->
 
-        <section class="section_1" id="Seccion4">
+        <section class="section_1" id="seccion4">
 
-            <div class="titulo_seccion">1. CARACTERIZACIÓN DEL ENTORNO</div>
+            <div class="titulo_seccion">4. CARACTERIZACIÓN DEL ENTORNO</div>
 
             <div class="contain_subs">
 
@@ -803,48 +818,73 @@
 
                     <div class="content_section1_1">
 
-                        <div class="sub-title"> <b>82.</b> Departamento</div>
-                        <input type="text" class="input_general" name="" list="miLista">
+                        <div class="sub-title"> <b>82.</b> Tipo Vivienda</div>
+                        <select class="input_general" name="82_TipoVivienda" >
+                        <?php
+                                valores($consulta->DatesOfTables('82_TipoVivienda'));
+                            ?>
+                            </select>
                        
 
-                        <div class="sub-title"> <b>82.2. </b> Unidad Zonal de Planeación y Evaluación - Regional - Provincia</div>
-                        <input type="text" class="input_general" name="">
-
-                        <div class="sub-title"> <b>83.</b> Municipio / Área no municipalizada</div>
-                        <input type="text" class="input_general" name="">
-                        
-                        <div class="sub-title"> <b>83.2.</b> Territorio</div>
-                        <input type="text" class="input_general" name="">
-
-                        <div class="sub-title"> <b>84.</b> Microterritorio</div>
+                        <div class="sub-title"> <b>82.2. </b> Cual?</div>
                         <input type="text" class="input_general" name="">
 
                         
-                        <div class="sub-title"> <b>84.2.</b> Corregimiento / Centro de poblado / Vereda / Localidad/ Barrio/ Resguardo Indigena</div>
+
+                        <div class="sub-title"> <b>83.</b>  ¿Cuál es el material predominante de las paredes?</div>
+                        <select class="input_general" name="83_MaterialParedes">
+                        <?php
+                                valores($consulta->DatesOfTables('83_MaterialParedes'));
+                            ?></select>
+                        
+                        <div class="sub-title"> <b>83.2.</b> Cual?</div>
+                        <input type="text" class="input_general" name="">
+
+                        <div class="sub-title"> <b>84.</b>  ¿Cuál es el material predominante del piso de la vivienda?</div>
+                        <select class="input_general" name="84_MaterialPiso">
+                        <?php
+                                valores($consulta->DatesOfTables('84_MaterialPiso'));
+                            ?></select>
+
+                        
+                        <div class="sub-title"> <b>84.2.</b> Cual?</div>
                         <input type="text" class="input_general" name="">
                         
-                        <div class="sub-title"> <b>85.</b> Dirección</div>
-                        <input type="text" class="input_general" name="">
+                        <div class="sub-title"> <b>85.</b> ¿Cuál es el material predominante del techo?</div>
+                        <select class="input_general" name="85_MaterialTecho">
+                        <?php
+                                valores($consulta->DatesOfTables('85_MaterialTecho'));
+                            ?></select>
                         
-                        <div class="sub-title"> <b>86.</b> Geopunto (online-offline) y altitud</div>
-                        <input type="text" class="input_general" name="">
+                        <div class="sub-title"> <b>86.</b> ¿De cuántos cuartos o piezas dormitorio dispone esta vivienda?</div>
+                        <input type="text" class="input_general" name="86_NumCuartos">
                         
-                        <div class="sub-title"> <b>87.</b> Ubicación del hogar (cuando no se cuenta con nomenclatura, punto de referencia)</div>
-                        <input type="text" class="input_general" name="">
+                        <div class="sub-title"> <b>87.</b> Hacinamiento </div>
+                        <input type="text" class="input_general" name="87_Hacinamiento">
                         
-                        <div class="sub-title"> <b>88.</b> Número de Identificación de la familia</div>
-                        <input type="text" class="input_general" name="">
+                        <div class="sub-title"> <b>88.</b> Se identifican algunos de los siguientes escenarios de riesgo de accidente en la vivienda</div>
+                        <select class="input_general" name="88_RiesgoAccidente">
+                        <?php
+                                valores($consulta->DatesOfTables('88_RiesgoAccidente'));
+                            ?></select>
                         
 
                         
-                        <div class="sub-title"> <b>89.</b> Número de personas en la vivienda</div>
-                        <input type="text" class="input_general" name="">
+                        <div class="sub-title"> <b>89.</b>   Desde la vivienda se puede acceder fácilmente a:</div>
+                        <select class="input_general" name="89_AccesoServicios">
+                        <?php
+                                valores($consulta->DatesOfTables('89_AccesoServicios'));
+                            ?></select>
 
-                        <div class="sub-title"> <b>90.</b> Número de personas en la vivienda</div>
-                        <input type="text" class="input_general" name="">
+                        <div class="sub-title"> <b>90.</b>  ¿Cuál fuente de energía o combustible que se usa para cocinar?</div>
+                        <select class="input_general" name="90_FuenteEnergiaCocinar">
+                        <?php
+                                valores($consulta->DatesOfTables('90_FuenteEnergiaCocinar'));
+                            ?></select>
 
-                        <div class="sub-title"> <b>91.</b> Número de personas en la vivienda</div>
-                        <input type="text" class="input_general" name="">
+                        <div class="sub-title"> <b>91.</b> ¿Se observa cerca de la vivienda o dentro de ella s criaderos o reservorios 
+                            que pueden favorecer la presencia de vectores transmisores de enfermedades?</div>
+                        <input type="text" class="input_general" name="91_CriaderosVectores">
                         
 
                     </div>
@@ -857,16 +897,22 @@
                     <div class="content_section1_1">
 
                         <div class="sub-title"> <b>92.</b>  Observe si cerca de la vivienda hay alguno de los siguientes:</div>
-                        <input type="text" class="input_general" name="">
+                        <select class="input_general" name="92_PresenciaPlagas">
+                        <?php
+                                valores($consulta->DatesOfTables('92_PresenciaPlagas'));
+                            ?></select>
     
                         <div class="sub-title"> <b>92.2.</b>Especifique </div>
                         <input type="text" class="input_general" name="">
 
                         <div class="sub-title"> <b>93.</b>  ¿Al interior de la vivienda se realiza alguna actividad económica?</div>
-                        <input type="text" class="input_general" name="">
+                        <input type="text" class="input_general" name="93_ActEconomica">
     
                         <div class="sub-title-large"> <b>94.</b>  Señale los animales que conviven con la familia dentro de la vivienda o en su entorno inmediato, e indique cuantos son:</div>
-                        <input type="text" class="input_general" name="">
+                        <select class="input_general" name="94_AnimalesConvivencia">
+                        <?php
+                                valores($consulta->DatesOfTables('94_AnimalesConvivencia'));
+                            ?></select>
 
                         <div class="sub-title"> <b>94.2.</b> Cual? </div>
                         <input type="text" class="input_general" name="">
@@ -890,19 +936,31 @@
                     <div class="content_section1_1">
 
                         <div class="sub-title"> <b>95.</b>  ¿Cuál es la principal fuente de abastecimiento de agua para consumo humano en la vivienda?</div>
-                        <input type="text" class="input_general" name="">
+                        <select class="input_general" name="95_FuenteAgua">
+                        <?php
+                                valores($consulta->DatesOfTables('95_FuenteAgua'));
+                            ?></select>
     
                         <div class="sub-title"> <b>96.</b> ¿Cuál es el sistema de disposición de excretas en la vivienda? </div>
-                        <input type="text" class="input_general" name="">
+                        <select class="input_general" name="96_SistExcretas">
+                        <?php
+                                valores($consulta->DatesOfTables('96_SistExcretas'));
+                            ?></select>
 
                         <div class="sub-title"> <b>97.</b> ¿Cuál es el sistema de disposición de aguas residuales domésticas en la vivienda?</div>
-                        <input type="text" class="input_general" name="">
+                        <select class="input_general" name="97_SistAguasResid">
+                        <?php
+                                valores($consulta->DatesOfTables('97_SistAguasResid'));
+                            ?></select>
     
                         <div class="sub-title"> <b>98.</b>  ¿Como se realiza la disposición final de los residuos sólidos ordinarios de la vivienda?</div>
-                        <input type="text" class="input_general" name="">
+                        <select class="input_general" name="98_ResiduosSolidos">
+                        <?php
+                                valores($consulta->DatesOfTables('98_ResiduosSolidos'));
+                            ?></select>
 
 
-                        <a href="#seccion2" class="input_general" name="" >FINALIZAR</a>
+                        <button type="submit" class="input_general" name="" >FINALIZAR</a>
 
                         
                     </div>
@@ -918,6 +976,6 @@
 
         </section>
 
-    </main>
+    </form>
 </body>
 </html>
