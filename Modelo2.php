@@ -366,9 +366,10 @@ function valores($Resultados){
                         </div>
                         
                         <div class="sub-title dnone" id="38_2t"> <b>38.2.</b>Si la respuesta es si indique cuales</div>
-                        <input type="date" class="input_general dnone" id="38_2v" name="38_2_IndicarCuales">
+                        <input type="text" class="input_general dnone" id="38_2v" name="38_2_IndicarCuales">
                         
                         <div class="sub-title dnone" id="38_3t"> <b>38.3.</b>Recibe tratamiento</div>
+                        <input type="hidden" name="38_3_RecibeTratamiento" value="">
                         <div class="checks dnone" id="38_3v">
                             <div class="check">
                                 <input type="radio" id="" name="38_3_RecibeTratamiento" value="SI">
@@ -381,14 +382,14 @@ function valores($Resultados){
                         </div>
                         
                         <div class="sub-title"> <b>39.</b>Cómo obtiene sus alimentos</div>
-                        <select class="input_general" name="39_ObtAlimentos">
+                        <select class="input_general selects" name="39_ObtAlimentos" data-target="39t_39v">
                         <?php
                                 valores($consulta->DatesOfTables('39_ObtAlimentos'));
                             ?>
                         </select>
                         
-                        <div class="sub-title dnone" > <b>39.2.</b>Cuál?</div>
-                        <input type="date" class="input_general dnone" name="39_2_Cual">
+                        <div class="sub-title dnone" id="39t" > <b>39.2.</b>Cuál?</div>
+                        <input type="text" class="input_general dnone" name="39_2_Cual" id="39v">
 
 
                     </div>
@@ -584,14 +585,14 @@ function valores($Resultados){
                           </select>
                         
                         <div class="sub-title"> <b>57.</b> Rol dentro de la familia</div>
-                        <select name="57_RolFamilia" class="input_general">
+                        <select name="57_RolFamilia" class="input_general selects" data-target="57t_57v">
                         <?php
                                 valores($consulta->DatesOfTables('57_RolFamilia'));
                             ?>
                           </select>
 
-                        <div class="sub-title"> <b>57_1.</b>  Cual</div>
-                        <input type="text" class="input_general" name="57_1_Cual">
+                        <div class="sub-title dnone" id="57t"> <b>57_1.</b>  Cual</div>
+                        <input type="text" class="input_general dnone" name="57_1_Cual" id="57v">
                         
                         <div class="sub-title"> <b>58.</b>  Ocupación</div>
                         <input type="text" class="input_general" name="58_Ocupacion">
@@ -705,10 +706,14 @@ function valores($Resultados){
                                 <input type="radio" id="" name="71_LactMatExclusiva" value="NO">
                                 <label >NO</label><br>
                             </div>
+                            <div class="check">
+                                <input type="radio" id="" name="71_LactMatExclusiva" value="NO APLICA">
+                                <label >No Aplica</label><br>
+                            </div>
                         </div>
     
                         <div class="sub-title -large"> <b>72.</b> Si es menor de 2 años, ¿hasta cuando recibio lactancia materna? (en meses)</div>
-                        <input type="date" class="input_general" name="72_DuracLactMat">
+                        <input type="number" class="input_general" name="72_DuracLactMat">
 
                         <div class="sub-title"> <b>73.</b>  Es menor de 5 años?</div>
                         <div class="checks">
@@ -720,16 +725,17 @@ function valores($Resultados){
                                 <input type="radio" id="" name="73_Menor5Años" value="NO">
                                 <label >NO</label><br>
                             </div>
+                           
                         </div>
 
                         <div class="sub-title"> <b>74.</b> Resultado de toma de medidas antropométricas </div>
-                        <input type="date" class="input_general" name="74_MedidasAntrop">
+                        <input type="text" class="input_general" name="74_MedidasAntrop">
 
                         <div class="sub-title"> <b>74.1.</b>  Peso (en Kilogramos) </div>
-                        <input type="date" class="input_general" name="74_1_PesoKilogramos">
+                        <input type="number" class="input_general" name="74_1_PesoKilogramos">
 
                         <div class="sub-title"> <b>74.2.</b> Talla (en centímetros) </div>
-                        <input type="date" class="input_general" name="74_2_TallaCentimetros">
+                        <input type="number" class="input_general" name="74_2_TallaCentimetros">
 
                         <div class="sub-title"> <b>75.</b> Diagnóstico nutricional inidicador Peso para la talla</div>
                         <select class="input_general" name="75_DiagNutric">
@@ -739,7 +745,7 @@ function valores($Resultados){
                         </select>
 
                         <div class="sub-title-large"> <b>76.</b>  Medida complementaria identificación de riesgo de muerte por desnutrición aguda , Perimetro Braquial</div>
-                        <input type="date" class="input_general" name="76_RiesgoMuerteDesnutr">
+                        <input type="text" class="input_general" name="76_RiesgoMuerteDesnutr">
 
                         <div class="sub-title"> <b>77.</b> Se identifican signos fisicos de desnutrición aguda </div>
                         <select class="input_general" name="77_SignosDesnutrAguda">
@@ -753,32 +759,32 @@ function valores($Resultados){
                             de piel / alergias, accidente casero, familiar o escolar. Alguna otra enfermedad. </div>
                             <div class="checks">
                                 <div class="check">
-                                    <input type="radio" id="" name="78_EnfermedadMes" value="SI">
+                                    <input type="radio" id="" name="78_EnfermedadMes" value="SI" onclick="MostrarDiv('78_2t','78_2v','SI')">
                                     <label >SI</label><br>
                                 </div>
                                 <div class="check">
-                                    <input type="radio" id="" name="78_EnfermedadMes" value="NO">
+                                    <input type="radio" id="" name="78_EnfermedadMes" value="NO" onclick="MostrarDiv('78_2t','78_2v','NO')">
                                     <label >NO</label><br>
                                 </div>
                             </div>
 
-                        <div class="sub-title"> <b>78.2.</b> Cuales</div>
-                        <input type="date" class="input_general" name="78_2_Cuales">
+                        <div class="sub-title dnone" id="78_2t"> <b>78.2.</b> Cuales</div>
+                        <input type="date" class="input_general dnone" id="78_2v" name="78_2_Cuales">
 
                         <div class="sub-title"> <b>79.</b> ¿Esta recibiendo atención y tratamiento para la enfermedad actual?</div>
                         <div class="checks">
                             <div class="check">
-                                <input type="radio" id="" name="79_AtencionEnfermedad" value="SI">
+                                <input type="radio" id="" name="79_AtencionEnfermedad" value="SI" onclick="MostrarDiv('80_t','80_v','NO')">
                                 <label >SI</label><br>
                             </div>
                             <div class="check">
-                                <input type="radio" id="" name="79_AtencionEnfermedad" value="NO">
+                                <input type="radio" id="" name="79_AtencionEnfermedad" value="NO" onclick="MostrarDiv('80_t','80_v','SI')">
                                 <label >NO</label><br>
                             </div>
                         </div>
 
-                        <div class="sub-title-large"> <b>80.</b> Si la respuesta a la pregunta anterior es NO. Marque con X el motivo por el cual no ha recibido la atención </div>
-                        <select class="input_general" name="80_MotivoSinAtencion">
+                        <div class="sub-title-large dnone" id="80_t"> <b>80.</b> Si la respuesta a la pregunta anterior es NO. Marque con X el motivo por el cual no ha recibido la atención </div>
+                        <select class="input_general dnone" id="80_v"name="80_MotivoSinAtencion">
                         <?php
                                 valores($consulta->DatesOfTables('80_MotivoSinAtencion'));
                             ?>
@@ -825,48 +831,48 @@ function valores($Resultados){
                     <div class="content_section1_1">
 
                         <div class="sub-title"> <b>82.</b> Tipo Vivienda</div>
-                        <select class="input_general" name="82_TipoVivienda" >
+                        <select class="input_general selects" name="82_TipoVivienda" data-target="82t_82v">
                         <?php
                                 valores($consulta->DatesOfTables('82_TipoVivienda'));
                             ?>
                             </select>
                        
 
-                        <div class="sub-title"> <b>82.2. </b> Cual?</div>
-                        <input type="text" class="input_general" name="82_2_Cual">
+                        <div class="sub-title dnone" id="82t"> <b>82.2. </b> Cual?</div>
+                        <input type="text" class="input_general dnone" name="82_2_Cual" id="82v">
 
                         
 
                         <div class="sub-title"> <b>83.</b>  ¿Cuál es el material predominante de las paredes?</div>
-                        <select class="input_general" name="83_MaterialParedes">
+                        <select class="input_general selects" name="83_MaterialParedes" data-target="83t_83v">
                         <?php
                                 valores($consulta->DatesOfTables('83_MaterialParedes'));
                             ?></select>
                         
-                        <div class="sub-title"> <b>83.2.</b> Cual?</div>
-                        <input type="text" class="input_general" name="83_2_Cual">
+                        <div class="sub-title dnone" id="83t"> <b>83.2.</b> Cual?</div>
+                        <input type="text" class="input_general dnone" name="83_2_Cual" id="83v">
 
                         <div class="sub-title"> <b>84.</b>  ¿Cuál es el material predominante del piso de la vivienda?</div>
-                        <select class="input_general" name="84_MaterialPiso">
+                        <select class="input_general selects" name="84_MaterialPiso" data-target="84t_84v">
                         <?php
                                 valores($consulta->DatesOfTables('84_MaterialPiso'));
                             ?></select>
 
                         
-                        <div class="sub-title"> <b>84.2.</b> Cual?</div>
-                        <input type="text" class="input_general" name="84_2_Cual">
+                        <div class="sub-title dnone" id="84t"> <b>84.2.</b> Cual?</div>
+                        <input type="text" class="input_general dnone" name="84_2_Cual" id="84v">
                         
                         <div class="sub-title"> <b>85.</b> ¿Cuál es el material predominante del techo?</div>
-                        <select class="input_general" name="85_MaterialTecho">
+                        <select class="input_general selects" name="85_MaterialTecho" data-target="85t_85v">
                         <?php
                                 valores($consulta->DatesOfTables('85_MaterialTecho'));
                             ?></select>
                         
-                        <div class="sub-title"> <b>85.2.</b> Cual?</div>
-                        <input type="text" class="input_general" name="85_2_Cual">
+                        <div class="sub-title dnone" id="85t"> <b>85.2.</b> Cual?</div>
+                        <input type="text" class="input_general dnone" name="85_2_Cual" id="85v">
 
                         <div class="sub-title"> <b>86.</b> ¿De cuántos cuartos o piezas dormitorio dispone esta vivienda?</div>
-                        <input type="text" class="input_general" name="86_NumCuartos">
+                        <input type="number" class="input_general" name="86_NumCuartos">
                         
                         <div class="sub-title"> <b>87.</b> Hacinamiento </div>
                         <input type="text" class="input_general" name="87_Hacinamiento">
@@ -886,20 +892,30 @@ function valores($Resultados){
                             ?></select>
 
                         <div class="sub-title"> <b>90.</b>  ¿Cuál fuente de energía o combustible que se usa para cocinar?</div>
-                        <select class="input_general" name="90_FuenteEnergiaCocinar">
+                        <select class="input_general selects" name="90_FuenteEnergiaCocinar" data-target="90t_90v">
                         <?php
                                 valores($consulta->DatesOfTables('90_FuenteEnergiaCocinar'));
                             ?></select>
 
-                        <div class="sub-title"> <b>90.2.</b> Cual?</div>
-                        <input type="text" class="input_general" name="90_2_Cual">
+                        <div class="sub-title dnone" id="90t"> <b>90.2.</b> Cual?</div>
+                        <input type="text" class="input_general dnone" name="90_2_Cual" id="90v">
 
                         <div class="sub-title"> <b>91.</b> ¿Se observa cerca de la vivienda o dentro de ella s criaderos o reservorios 
                             que pueden favorecer la presencia de vectores transmisores de enfermedades?</div>
-                        <input type="text" class="input_general" name="91_CriaderosVectores">
+                        
+                        <div class="checks">
+                            <div class="check">
+                                <input type="radio" id="" name="91_CriaderosVectores" value="SI" onclick="MostrarDiv('91_2t','91_2v','SI')">
+                                <label >SI</label><br>
+                            </div>
+                            <div class="check">
+                                <input type="radio" id="" name="91_CriaderosVectores" value="NO" onclick="MostrarDiv('91_2t','91_2v','NO')">
+                                <label >NO</label><br>
+                            </div>
+                        </div>
 
-                        <div class="sub-title"> <b>91.2.</b> Cual?</div>
-                        <input type="text" class="input_general" name="91_2_Cuales">
+                        <div class="sub-title dnone" id="91_2t"> <b>91.2.</b> Cual?</div>
+                        <input type="text" class="input_general dnone" id="91_2v" name="91_2_Cuales">
                         
 
                     </div>
@@ -912,28 +928,38 @@ function valores($Resultados){
                     <div class="content_section1_1">
 
                         <div class="sub-title"> <b>92.</b>  Observe si cerca de la vivienda hay alguno de los siguientes:</div>
-                        <select class="input_general" name="92_PresenciaPlagas">
+                        <select class="input_general " name="92_PresenciaPlagas">
                         <?php
                                 valores($consulta->DatesOfTables('92_PresenciaPlagas'));
                             ?></select>
     
-                        <div class="sub-title"> <b>92.2.</b>Especifique </div>
+                        <div class="sub-title "> <b>92.2.</b>Especifique </div>
                         <input type="text" class="input_general" name="92_2_Especifique">
 
                         <div class="sub-title"> <b>93.</b>  ¿Al interior de la vivienda se realiza alguna actividad económica?</div>
-                        <input type="text" class="input_general" name="93_ActEconomica">
+                       
+                        <div class="checks">
+                            <div class="check">
+                                <input type="radio" id="" name="93_ActEconomica" value="SI" >
+                                <label >SI</label><br>
+                            </div>
+                            <div class="check">
+                                <input type="radio" id="" name="93_ActEconomica" value="NO" >
+                                <label >NO</label><br>
+                            </div>
+                        </div>
     
                         <div class="sub-title-large"> <b>94.</b>  Señale los animales que conviven con la familia dentro de la vivienda o en su entorno inmediato, e indique cuantos son:</div>
-                        <select class="input_general" name="94_AnimalesConvivencia">
+                        <select class="input_general selects" name="94_AnimalesConvivencia" data-target="94t_94v">
                         <?php
                                 valores($consulta->DatesOfTables('94_AnimalesConvivencia'));
                             ?></select>
 
-                        <div class="sub-title"> <b>94.2.</b> Cual? </div>
-                        <input type="text" class="input_general" name="94_2_Cual">
+                        <div class="sub-title dnone" id="94t"> <b>94.2.</b> Cual? </div>
+                        <input type="text" class="input_general dnone" name="94_2_Cual" id="94v">
     
                         <div class="sub-title"> <b>94.3.</b> Registrar Cantidad</div>
-                        <input type="date" class="input_general" name="94_3_RegistrarCantidad">
+                        <input type="number" class="input_general" name="94_3_RegistrarCantidad">
 
                        
 
@@ -951,40 +977,40 @@ function valores($Resultados){
                     <div class="content_section1_1">
 
                         <div class="sub-title"> <b>95.</b>  ¿Cuál es la principal fuente de abastecimiento de agua para consumo humano en la vivienda?</div>
-                        <select class="input_general" name="95_FuenteAgua">
+                        <select class="input_general selects" name="95_FuenteAgua" data-target="95t_95v">
                         <?php
                                 valores($consulta->DatesOfTables('95_FuenteAgua'));
                             ?></select>
 
-<div class="sub-title"> <b>95.2.</b> Cual?</div>
-                        <input type="text" class="input_general" name="95_2_Cual">
+                        <div class="sub-title dnone" id="95t"> <b>95.2.</b> Cual?</div>
+                        <input type="text" class="input_general dnone" name="95_2_Cual" id="95v">
     
                         <div class="sub-title"> <b>96.</b> ¿Cuál es el sistema de disposición de excretas en la vivienda? </div>
-                        <select class="input_general" name="96_SistExcretas">
+                        <select class="input_general selects" name="96_SistExcretas" data-target="96t_96v">
                         <?php
                                 valores($consulta->DatesOfTables('96_SistExcretas'));
                             ?></select>
 
-<div class="sub-title"> <b>96.2.</b> Cual?</div>
-                        <input type="text" class="input_general" name="96_2_Cual">    
+                        <div class="sub-title dnone" id="96t"> <b>96.2.</b> Cual?</div>
+                        <input type="text" class="input_general dnone" name="96_2_Cual" id="96v">    
 
                         <div class="sub-title"> <b>97.</b> ¿Cuál es el sistema de disposición de aguas residuales domésticas en la vivienda?</div>
-                        <select class="input_general" name="97_SistAguasResid">
+                        <select class="input_general selects" name="97_SistAguasResid" data-target="97t_97v">
                         <?php
                                 valores($consulta->DatesOfTables('97_SistAguasResid'));
                             ?></select>
 
-<div class="sub-title"> <b>97.2.</b> Cual?</div>
-                        <input type="text" class="input_general" name="97_2_Cual">
+                        <div class="sub-title dnone" id="97t"> <b>97.2.</b> Cual?</div>
+                        <input type="text" class="input_general dnone" name="97_2_Cual" id="97v">
     
                         <div class="sub-title"> <b>98.</b>  ¿Como se realiza la disposición final de los residuos sólidos ordinarios de la vivienda?</div>
-                        <select class="input_general" name="98_ResiduosSolidos">
+                        <select class="input_general selects" name="98_ResiduosSolidos" data-target="98t_98v">
                         <?php
                                 valores($consulta->DatesOfTables('98_ResiduosSolidos'));
                             ?></select>
 
-<div class="sub-title"> <b>98.2.</b> Cual?</div>
-                        <input type="text" class="input_general" name="98_2_Cual">
+                        <div class="sub-title dnone" id="98t"> <b>98.2.</b> Cual?</div>
+                        <input type="text" class="input_general dnone" name="98_2_Cual" id="98v">
 
 
                         <button type="submit" class="input_general" name="" >FINALIZAR</a>
@@ -1007,4 +1033,5 @@ function valores($Resultados){
 </body>
 
 <script src="Js/Mostrar_Elementos.js"></script>
+<script src="Js/Js.js"></script>
 </html>
