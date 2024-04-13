@@ -22,7 +22,7 @@ function valores($Resultados){
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="Css/StyleModel2.css">
+    <link rel="stylesheet" href="Css/StyleModel.css">
     <title>MinSalud</title>
 </head>
 <body>
@@ -51,12 +51,12 @@ function valores($Resultados){
                     <div class="content_section1_1">
 
                         <div class="sub-title"> <b>1.</b> Departamento</div>
-                        <input type="text" class="input_general" name="1_Departamento" list="miLista">
-                        <datalist id="miLista">
+                        <!-- <input type="text" class="input_general" name="1_Departamento" list="miLista"> -->
+                        <select class="input_general" name="1_Departamento" id="miLista">
                             <?php
                                 valores($consulta->DatesOfTables('1_Departamento'));
                             ?>
-                        </datalist>
+                        </select>
 
                         <div class="sub-title"> <b>2. </b> Unidad Zonal de Planeación y Evaluación - Regional - Provincia</div>
                         <input type="text" class="input_general" name="2_UnidadZonal">
@@ -67,13 +67,13 @@ function valores($Resultados){
                         
                         <div class="sub-title"> <b>4.</b> Territorio</div>
                         <input type="text" class="input_general" name="4_Territorio">
-                        <input type="text" class="input_general" name="" placeholder="ID:">
-                        <input type="text" class="input_general" name="" placeholder="Serial:">
+                        <input type="text" class="input_general" name="4_1_ID" placeholder="ID:">
+                        <input type="text" class="input_general" name="4_2_Serial" placeholder="Serial:">
 
                         <div class="sub-title"> <b>5.</b> Microterritorio</div>
                         <input type="text" class="input_general" name="5_Microterritorio">
-                        <input type="text" class="input_general" name="" placeholder="ID:">
-                        <input type="text" class="input_general" name="" placeholder="Serial:">
+                        <input type="text" class="input_general" name="5_1_ID" placeholder="ID:">
+                        <input type="text" class="input_general" name="5_2_Serial" placeholder="Serial:">
                         
                         <div class="sub-title"> <b>6.</b> Corregimiento / Centro de poblado / Vereda / Localidad/ Barrio/ Resguardo Indigena</div>
                         <input type="text" class="input_general" name="6_Corregimiento">
@@ -176,15 +176,18 @@ function valores($Resultados){
 
 
                         <div class="sub-title"> <b>22. </b> Número de personas que conforman la familia</div>
-                        <input type="text" class="input_general" name="22_NumPerFamilia">
+                        <input type="number" class="input_general" name="22_NumPerFamilia">
                       
 
-                        <div class="sub-title"> <b>23.</b> Estructura y dinámica familiar (Diligenciamiento Familiograma) </div>
+                        <div class="sub-title"> <b>23.</b> Estructura y dinámica familiar (Diligenciamiento Familiograma) Seleccione el tipo de riesgo identificado </div>
                         <select  class="input_general" name="23_EstrucDinamica">
                         <?php
                                 valores($consulta->DatesOfTables('23_EstrucDinamica'));
                             ?>
                         </select>
+
+                        <div class="sub-title"> <b>Observaciones </b></div>
+                        <input type="text" class="input_general" name="23_1_Observacion">
                         
                         <div class="sub-title"> <b>24.</b> Funcionalidad de la familia (Apgar familiar)</div>
                         <select name="24_FuncFamilia" class="input_general">
@@ -197,19 +200,19 @@ function valores($Resultados){
                         <div class="sub-title-large"> <b>25.</b> En la familia se identifica un cuidador principal de niños, niñas, persona con discapacidad, adulto mayor o enfermedad?</div>
                         <div class="checks">
                             <div class="check">
-                                <input type="radio" id="opcion1" name="25_CuidadorPrinc" value="SI">
+                                <input type="radio" id="opcion1" name="25_CuidadorPrinc" value="SI" onclick="MostrarDiv('26_t','26_v','SI')">
                                 <label for="opcion1">SI</label><br>
                             </div>
                             <div class="check">
-                                <input type="radio" id="opcion2" name="25_CuidadorPrinc" value="NO">
+                                <input type="radio" id="opcion2" name="25_CuidadorPrinc" value="NO" onclick="MostrarDiv('26_t','26_v','NO')">
                                 <label for="opcion2">NO</label><br>
                             </div>
                         </div>
 
                         
-                        <div class="sub-title_extend"> <b>26.</b>Si la respuesta anterior es SI aplicar escala ZARIT y registre aquí el resultado 
+                        <div class="sub-title dnone" id="26_t"> <b>26.</b>Si la respuesta anterior es SI aplicar escala ZARIT y registre aquí el resultado 
                             -puntaje para determinar si se requiere intervención individual o familiar</div>
-                            <select name="26_EscalaZarit" class="input_general">
+                            <select name="26_EscalaZarit" class="input_general dnone" id="26_v">
                             <?php
                                 valores($consulta->DatesOfTables('26_EscalaZarit'));
                             ?>
@@ -235,11 +238,11 @@ function valores($Resultados){
                                                 <div class="checks">
                             <div class="check">
                                 <input type="radio" id="" name="28_FamNiñosAdoles" value="SI">
-                                <label for="">SI</label><br>
+                                <label >SI</label><br>
                             </div>
                             <div class="check">
                                 <input type="radio" id="" name="28_FamNiñosAdoles" value="NO">
-                                <label for="">NO</label><br>
+                                <label >NO</label><br>
                             </div>
                         </div>
     
@@ -247,11 +250,11 @@ function valores($Resultados){
                                                 <div class="checks">
                             <div class="check">
                                 <input type="radio" id="" name="29_GestanteFam" value="SI">
-                                <label for="">SI</label><br>
+                                <label >SI</label><br>
                             </div>
                             <div class="check">
                                 <input type="radio" id="" name="29_GestanteFam" value="NO">
-                                <label for="">NO</label><br>
+                                <label >NO</label><br>
                             </div>
                         </div>
 
@@ -259,11 +262,11 @@ function valores($Resultados){
                                                 <div class="checks">
                             <div class="check">
                                 <input type="radio" id="" name="30_FamAdultMayores" value="SI">
-                                <label for="">SI</label><br>
+                                <label >SI</label><br>
                             </div>
                             <div class="check">
                                 <input type="radio" id="" name="30_FamAdultMayores" value="NO">
-                                <label for="">NO</label><br>
+                                <label >NO</label><br>
                             </div>
                         </div>
     
@@ -271,11 +274,11 @@ function valores($Resultados){
                                                 <div class="checks">
                             <div class="check">
                                 <input type="radio" id="" name="31_FamVicConflicto" value="SI">
-                                <label for="">SI</label><br>
+                                <label >SI</label><br>
                             </div>
                             <div class="check">
                                 <input type="radio" id="" name="31_FamVicConflicto" value="NO">
-                                <label for="">NO</label><br>
+                                <label >NO</label><br>
                             </div>
                         </div>
 
@@ -283,11 +286,11 @@ function valores($Resultados){
                         <div class="checks">
                             <div class="check">
                                 <input type="radio" id="" name="32_FamDiscapacidad" value="SI">
-                                <label for="">SI</label><br>
+                                <label >SI</label><br>
                             </div>
                             <div class="check">
                                 <input type="radio" id="" name="32_FamDiscapacidad" value="NO">
-                                <label for="">NO</label><br>
+                                <label >NO</label><br>
                             </div>
                         </div>
     
@@ -295,11 +298,11 @@ function valores($Resultados){
                         <div class="checks">
                             <div class="check">
                                 <input type="radio" id="" name="33_FamEnfCronica" value="SI">
-                                <label for="">SI</label><br>
+                                <label >SI</label><br>
                             </div>
                             <div class="check">
                                 <input type="radio" id="" name="33_FamEnfCronica" value="NO">
-                                <label for="">NO</label><br>
+                                <label >NO</label><br>
                             </div>
                         </div>
 
@@ -315,11 +318,11 @@ function valores($Resultados){
                                                 <div class="checks">
                             <div class="check">
                                 <input type="radio" id="" name="35_FamSucesosVit" value="SI">
-                                <label for="">SI</label><br>
+                                <label >SI</label><br>
                             </div>
                             <div class="check">
                                 <input type="radio" id="" name="35_FamSucesosVit" value="NO">
-                                <label for="">NO</label><br>
+                                <label >NO</label><br>
                             </div>
                         </div>
                         
@@ -328,11 +331,11 @@ function valores($Resultados){
                                                 <div class="checks">
                             <div class="check">
                                 <input type="radio" id="" name="36_FamVulnSocial" value="SI">
-                                <label for="">SI</label><br>
+                                <label >SI</label><br>
                             </div>
                             <div class="check">
                                 <input type="radio" id="" name="36_FamVulnSocial" value="NO">
-                                <label for="">NO</label><br>
+                                <label >NO</label><br>
                             </div>
                         </div>
                         
@@ -342,38 +345,38 @@ function valores($Resultados){
                                                 <div class="checks">
                             <div class="check">
                                 <input type="radio" id="" name="37_PracCuidadoSalud" value="SI">
-                                <label for="">SI</label><br>
+                                <label >SI</label><br>
                             </div>
                             <div class="check">
                                 <input type="radio" id="" name="37_PracCuidadoSalud" value="NO">
-                                <label for="">NO</label><br>
+                                <label >NO</label><br>
                             </div>
                         </div>
                         
                         <div class="sub-title"> <b>38.</b>Familia con integrantes con antecedentes de Ca, HTA, Diabetes, Asma, Enfermedad cardiaca, otra</div>
                         <div class="checks">
                             <div class="check">
-                                <input type="radio" id="" name="38_AntecEnfermedades" value="SI">
-                                <label for="">SI</label><br>
+                                <input type="radio" id="" name="38_AntecEnfermedades" value="SI" onclick="MostrarDiv('38_2t','38_2v','SI');MostrarDiv('38_3t','38_3v','SI')">
+                                <label >SI</label><br>
                             </div>
                             <div class="check">
-                                <input type="radio" id="" name="38_AntecEnfermedades" value="NO">
-                                <label for="">NO</label><br>
+                                <input type="radio" id="" name="38_AntecEnfermedades" value="NO" onclick="MostrarDiv('38_2t','38_2v','NO');MostrarDiv('38_3t','38_3v','NO')">
+                                <label >NO</label><br>
                             </div>
                         </div>
                         
-                        <div class="sub-title"> <b>38.2.</b>Si la respuesta es si indique cuales</div>
-                        <input type="date" class="input_general" name="">
+                        <div class="sub-title dnone" id="38_2t"> <b>38.2.</b>Si la respuesta es si indique cuales</div>
+                        <input type="date" class="input_general dnone" id="38_2v" name="38_2_IndicarCuales">
                         
-                        <div class="sub-title"> <b>38.3.</b>Recibe tratamiento</div>
-                        <div class="checks">
+                        <div class="sub-title dnone" id="38_3t"> <b>38.3.</b>Recibe tratamiento</div>
+                        <div class="checks dnone" id="38_3v">
                             <div class="check">
-                                <input type="radio" id="" name="38_3" value="SI">
-                                <label for="">SI</label><br>
+                                <input type="radio" id="" name="38_3_RecibeTratamiento" value="SI">
+                                <label >SI</label><br>
                             </div>
                             <div class="check">
-                                <input type="radio" id="" name="38_3" value="NO">
-                                <label for="">NO</label><br>
+                                <input type="radio" id="" name="38_3_RecibeTratamiento" value="NO">
+                                <label >NO</label><br>
                             </div>
                         </div>
                         
@@ -384,8 +387,8 @@ function valores($Resultados){
                             ?>
                         </select>
                         
-                        <div class="sub-title" class="ocultar"> <b>39.2.</b>Cuál?</div>
-                        <input type="date" class="input_general" name="">
+                        <div class="sub-title dnone" > <b>39.2.</b>Cuál?</div>
+                        <input type="date" class="input_general dnone" name="39_2_Cual">
 
 
                     </div>
@@ -405,11 +408,11 @@ function valores($Resultados){
                         <div class="checks">
                             <div class="check">
                                 <input type="radio" id="" name="40_HabitosSaludables" value="SI">
-                                <label for="">SI</label><br>
+                                <label >SI</label><br>
                             </div>
                             <div class="check">
                                 <input type="radio" id="" name="40_HabitosSaludables" value="NO">
-                                <label for="">NO</label><br>
+                                <label >NO</label><br>
                             </div>
                         </div>
     
@@ -418,11 +421,11 @@ function valores($Resultados){
                         <div class="checks">
                             <div class="check">
                                 <input type="radio" id="" name="41_RecSocioemocionales" value="SI">
-                                <label for="">SI</label><br>
+                                <label >SI</label><br>
                             </div>
                             <div class="check">
                                 <input type="radio" id="" name="41_RecSocioemocionales" value="NO">
-                                <label for="">NO</label><br>
+                                <label >NO</label><br>
                             </div>
                         </div>
 
@@ -430,11 +433,11 @@ function valores($Resultados){
                         <div class="checks">
                             <div class="check">
                                 <input type="radio" id="" name="42_PracCuidadoEnt" value="SI">
-                                <label for="">SI</label><br>
+                                <label >SI</label><br>
                             </div>
                             <div class="check">
                                 <input type="radio" id="" name="42_PracCuidadoEnt" value="NO">
-                                <label for="">NO</label><br>
+                                <label >NO</label><br>
                             </div>
                         </div>
     
@@ -443,11 +446,11 @@ function valores($Resultados){
                         <div class="checks">
                             <div class="check">
                                 <input type="radio" id="" name="43_PracRelSanas" value="SI">
-                                <label for="">SI</label><br>
+                                <label >SI</label><br>
                             </div>
                             <div class="check">
                                 <input type="radio" id="" name="43_PracRelSanas" value="NO">
-                                <label for="">NO</label><br>
+                                <label >NO</label><br>
                             </div>
                         </div>
 
@@ -456,11 +459,11 @@ function valores($Resultados){
                         <div class="checks">
                             <div class="check">
                                 <input type="radio" id="" name="44_RecSocComunitarios" value="SI">
-                                <label for="">SI</label><br>
+                                <label >SI</label><br>
                             </div>
                             <div class="check">
                                 <input type="radio" id="" name="44_RecSocComunitarios" value="NO">
-                                <label for="">NO</label><br>
+                                <label >NO</label><br>
                             </div>
                         </div>
     
@@ -469,11 +472,11 @@ function valores($Resultados){
                         <div class="checks">
                             <div class="check">
                                 <input type="radio" id="" name="45_PracConsAutonomia" value="SI">
-                                <label for="">SI</label><br>
+                                <label >SI</label><br>
                             </div>
                             <div class="check">
                                 <input type="radio" id="" name="45_PracConsAutonomia" value="NO">
-                                <label for="">NO</label><br>
+                                <label >NO</label><br>
                             </div>
                         </div>
                         
@@ -482,11 +485,11 @@ function valores($Resultados){
                         <div class="checks">
                             <div class="check">
                                 <input type="radio" id="" name="46_PracPrevEnferm" value="SI">
-                                <label for="">SI</label><br>
+                                <label >SI</label><br>
                             </div>
                             <div class="check">
                                 <input type="radio" id="" name="46_PracPrevEnferm" value="NO">
-                                <label for="">NO</label><br>
+                                <label >NO</label><br>
                             </div>
                         </div>
                         
@@ -495,11 +498,11 @@ function valores($Resultados){
                         <div class="checks">
                             <div class="check">
                                 <input type="radio" id="" name="47_PracCuidadoAncestrales" value="SI">
-                                <label for="">SI</label><br>
+                                <label >SI</label><br>
                             </div>
                             <div class="check">
                                 <input type="radio" id="" name="47_PracCuidadoAncestrales" value="NO">
-                                <label for="">NO</label><br>
+                                <label >NO</label><br>
                             </div>
                         </div>
                         
@@ -507,11 +510,11 @@ function valores($Resultados){
                         <div class="checks">
                             <div class="check">
                                 <input type="radio" id="" name="48_CapDerechoSalud" value="SI">
-                                <label for="">SI</label><br>
+                                <label >SI</label><br>
                             </div>
                             <div class="check">
                                 <input type="radio" id="" name="48_CapDerechoSalud" value="NO">
-                                <label for="">NO</label><br>
+                                <label >NO</label><br>
                             </div>
                         </div>
 
@@ -586,6 +589,9 @@ function valores($Resultados){
                                 valores($consulta->DatesOfTables('57_RolFamilia'));
                             ?>
                           </select>
+
+                        <div class="sub-title"> <b>57_1.</b>  Cual</div>
+                        <input type="text" class="input_general" name="57_1_Cual">
                         
                         <div class="sub-title"> <b>58.</b>  Ocupación</div>
                         <input type="text" class="input_general" name="58_Ocupacion">
@@ -631,11 +637,11 @@ function valores($Resultados){
                         <div class="checks">
                             <div class="check">
                                 <input type="radio" id="" name="66_CondSaludCronica" value="SI">
-                                <label for="">SI</label><br>
+                                <label >SI</label><br>
                             </div>
                             <div class="check">
                                 <input type="radio" id="" name="66_CondSaludCronica" value="NO">
-                                <label for="">NO</label><br>
+                                <label >NO</label><br>
                             </div>
                         </div>
                         
@@ -655,11 +661,11 @@ function valores($Resultados){
                         <div class="checks">
                             <div class="check">
                                 <input type="radio" id="" name="67_EsquemaPromocion" value="SI">
-                                <label for="">SI</label><br>
+                                <label >SI</label><br>
                             </div>
                             <div class="check">
                                 <input type="radio" id="" name="67_EsquemaPromocion" value="NO">
-                                <label for="">NO</label><br>
+                                <label >NO</label><br>
                             </div>
                         </div>
     
@@ -681,11 +687,11 @@ function valores($Resultados){
                         <div class="checks">
                             <div class="check">
                                 <input type="radio" id="" name="70_PracDeportiva" value="SI">
-                                <label for="">SI</label><br>
+                                <label >SI</label><br>
                             </div>
                             <div class="check">
                                 <input type="radio" id="" name="70_PracDeportiva" value="NO">
-                                <label for="">NO</label><br>
+                                <label >NO</label><br>
                             </div>
                         </div>
 
@@ -693,11 +699,11 @@ function valores($Resultados){
                         <div class="checks">
                             <div class="check">
                                 <input type="radio" id="" name="71_LactMatExclusiva" value="SI">
-                                <label for="">SI</label><br>
+                                <label >SI</label><br>
                             </div>
                             <div class="check">
                                 <input type="radio" id="" name="71_LactMatExclusiva" value="NO">
-                                <label for="">NO</label><br>
+                                <label >NO</label><br>
                             </div>
                         </div>
     
@@ -708,11 +714,11 @@ function valores($Resultados){
                         <div class="checks">
                             <div class="check">
                                 <input type="radio" id="" name="73_Menor5Años" value="SI">
-                                <label for="">SI</label><br>
+                                <label >SI</label><br>
                             </div>
                             <div class="check">
                                 <input type="radio" id="" name="73_Menor5Años" value="NO">
-                                <label for="">NO</label><br>
+                                <label >NO</label><br>
                             </div>
                         </div>
 
@@ -720,10 +726,10 @@ function valores($Resultados){
                         <input type="date" class="input_general" name="74_MedidasAntrop">
 
                         <div class="sub-title"> <b>74.1.</b>  Peso (en Kilogramos) </div>
-                        <input type="date" class="input_general" name="">
+                        <input type="date" class="input_general" name="74_1_PesoKilogramos">
 
                         <div class="sub-title"> <b>74.2.</b> Talla (en centímetros) </div>
-                        <input type="date" class="input_general" name="">
+                        <input type="date" class="input_general" name="74_2_TallaCentimetros">
 
                         <div class="sub-title"> <b>75.</b> Diagnóstico nutricional inidicador Peso para la talla</div>
                         <select class="input_general" name="75_DiagNutric">
@@ -748,26 +754,26 @@ function valores($Resultados){
                             <div class="checks">
                                 <div class="check">
                                     <input type="radio" id="" name="78_EnfermedadMes" value="SI">
-                                    <label for="">SI</label><br>
+                                    <label >SI</label><br>
                                 </div>
                                 <div class="check">
                                     <input type="radio" id="" name="78_EnfermedadMes" value="NO">
-                                    <label for="">NO</label><br>
+                                    <label >NO</label><br>
                                 </div>
                             </div>
 
                         <div class="sub-title"> <b>78.2.</b> Cuales</div>
-                        <input type="date" class="input_general" name="">
+                        <input type="date" class="input_general" name="78_2_Cuales">
 
                         <div class="sub-title"> <b>79.</b> ¿Esta recibiendo atención y tratamiento para la enfermedad actual?</div>
                         <div class="checks">
                             <div class="check">
                                 <input type="radio" id="" name="79_AtencionEnfermedad" value="SI">
-                                <label for="">SI</label><br>
+                                <label >SI</label><br>
                             </div>
                             <div class="check">
                                 <input type="radio" id="" name="79_AtencionEnfermedad" value="NO">
-                                <label for="">NO</label><br>
+                                <label >NO</label><br>
                             </div>
                         </div>
 
@@ -827,7 +833,7 @@ function valores($Resultados){
                        
 
                         <div class="sub-title"> <b>82.2. </b> Cual?</div>
-                        <input type="text" class="input_general" name="">
+                        <input type="text" class="input_general" name="82_2_Cual">
 
                         
 
@@ -838,7 +844,7 @@ function valores($Resultados){
                             ?></select>
                         
                         <div class="sub-title"> <b>83.2.</b> Cual?</div>
-                        <input type="text" class="input_general" name="">
+                        <input type="text" class="input_general" name="83_2_Cual">
 
                         <div class="sub-title"> <b>84.</b>  ¿Cuál es el material predominante del piso de la vivienda?</div>
                         <select class="input_general" name="84_MaterialPiso">
@@ -848,7 +854,7 @@ function valores($Resultados){
 
                         
                         <div class="sub-title"> <b>84.2.</b> Cual?</div>
-                        <input type="text" class="input_general" name="">
+                        <input type="text" class="input_general" name="84_2_Cual">
                         
                         <div class="sub-title"> <b>85.</b> ¿Cuál es el material predominante del techo?</div>
                         <select class="input_general" name="85_MaterialTecho">
@@ -856,6 +862,9 @@ function valores($Resultados){
                                 valores($consulta->DatesOfTables('85_MaterialTecho'));
                             ?></select>
                         
+                        <div class="sub-title"> <b>85.2.</b> Cual?</div>
+                        <input type="text" class="input_general" name="85_2_Cual">
+
                         <div class="sub-title"> <b>86.</b> ¿De cuántos cuartos o piezas dormitorio dispone esta vivienda?</div>
                         <input type="text" class="input_general" name="86_NumCuartos">
                         
@@ -882,9 +891,15 @@ function valores($Resultados){
                                 valores($consulta->DatesOfTables('90_FuenteEnergiaCocinar'));
                             ?></select>
 
+                        <div class="sub-title"> <b>90.2.</b> Cual?</div>
+                        <input type="text" class="input_general" name="90_2_Cual">
+
                         <div class="sub-title"> <b>91.</b> ¿Se observa cerca de la vivienda o dentro de ella s criaderos o reservorios 
                             que pueden favorecer la presencia de vectores transmisores de enfermedades?</div>
                         <input type="text" class="input_general" name="91_CriaderosVectores">
+
+                        <div class="sub-title"> <b>91.2.</b> Cual?</div>
+                        <input type="text" class="input_general" name="91_2_Cuales">
                         
 
                     </div>
@@ -903,7 +918,7 @@ function valores($Resultados){
                             ?></select>
     
                         <div class="sub-title"> <b>92.2.</b>Especifique </div>
-                        <input type="text" class="input_general" name="">
+                        <input type="text" class="input_general" name="92_2_Especifique">
 
                         <div class="sub-title"> <b>93.</b>  ¿Al interior de la vivienda se realiza alguna actividad económica?</div>
                         <input type="text" class="input_general" name="93_ActEconomica">
@@ -915,10 +930,10 @@ function valores($Resultados){
                             ?></select>
 
                         <div class="sub-title"> <b>94.2.</b> Cual? </div>
-                        <input type="text" class="input_general" name="">
+                        <input type="text" class="input_general" name="94_2_Cual">
     
                         <div class="sub-title"> <b>94.3.</b> Registrar Cantidad</div>
-                        <input type="date" class="input_general" name="">
+                        <input type="date" class="input_general" name="94_3_RegistrarCantidad">
 
                        
 
@@ -940,6 +955,9 @@ function valores($Resultados){
                         <?php
                                 valores($consulta->DatesOfTables('95_FuenteAgua'));
                             ?></select>
+
+<div class="sub-title"> <b>95.2.</b> Cual?</div>
+                        <input type="text" class="input_general" name="95_2_Cual">
     
                         <div class="sub-title"> <b>96.</b> ¿Cuál es el sistema de disposición de excretas en la vivienda? </div>
                         <select class="input_general" name="96_SistExcretas">
@@ -947,17 +965,26 @@ function valores($Resultados){
                                 valores($consulta->DatesOfTables('96_SistExcretas'));
                             ?></select>
 
+<div class="sub-title"> <b>96.2.</b> Cual?</div>
+                        <input type="text" class="input_general" name="96_2_Cual">    
+
                         <div class="sub-title"> <b>97.</b> ¿Cuál es el sistema de disposición de aguas residuales domésticas en la vivienda?</div>
                         <select class="input_general" name="97_SistAguasResid">
                         <?php
                                 valores($consulta->DatesOfTables('97_SistAguasResid'));
                             ?></select>
+
+<div class="sub-title"> <b>97.2.</b> Cual?</div>
+                        <input type="text" class="input_general" name="97_2_Cual">
     
                         <div class="sub-title"> <b>98.</b>  ¿Como se realiza la disposición final de los residuos sólidos ordinarios de la vivienda?</div>
                         <select class="input_general" name="98_ResiduosSolidos">
                         <?php
                                 valores($consulta->DatesOfTables('98_ResiduosSolidos'));
                             ?></select>
+
+<div class="sub-title"> <b>98.2.</b> Cual?</div>
+                        <input type="text" class="input_general" name="98_2_Cual">
 
 
                         <button type="submit" class="input_general" name="" >FINALIZAR</a>
@@ -978,4 +1005,6 @@ function valores($Resultados){
 
     </form>
 </body>
+
+<script src="Js/Mostrar_Elementos.js"></script>
 </html>

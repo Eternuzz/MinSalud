@@ -17,7 +17,7 @@ function habilitarElemento(id,elemento) {
     }
 
     //Mostrar  el elemento 
-    if(seleccion === "otro") {
+    if(seleccion === "Otro") {
 
         elemento.style.display = "flex"; 
 

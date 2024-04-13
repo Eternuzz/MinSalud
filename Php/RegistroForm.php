@@ -129,7 +129,12 @@ $FechaNac_55=null;
 
 //
 
+//Ids
 
+$id_seccion_1=0;
+$id_seccion_2=0;
+$id_seccion_3=0;
+$id_seccion_4=0;
 //INSERT SECCION 1
 
 // Preparar la consulta SQL
@@ -148,6 +153,7 @@ $stmt->bind_param('isssssssiiiiiissssss', $Departamento_1, $UnidadZonal_2, $Muni
 if ($stmt->execute()) {
     $inserted_id = $stmt->insert_id;
     echo "Insertado correctamente, ID generado: " . $inserted_id;
+    $id_seccion_1=$inserted_id;
 } else {
     echo "Error en la insercion: " . $stmt->error;
 }
@@ -155,6 +161,33 @@ if ($stmt->execute()) {
 $stmt->close();
 
 //
+
+
+//INERT DETALLES SECCION 1 ------------------------------------------------------
+
+
+// Definición de variables
+$ID_4_1 = $_POST['4_1_ID'];
+$Serial_4_2 = $_POST['4_2_Serial'];
+$ID_5_1 = $_POST['5_1_ID'];
+$Serial_5_2 = $_POST['5_2_Serial'];
+
+// Script de inserción
+$sql = "INSERT INTO Detalles_seccion1 (id_seccion_1, 4_1_ID, 4_2_Serial, 5_1_ID, 5_2_Serial) VALUES (?, ?, ?, ?, ?)";
+$stmt = $mysqli->prepare($sql);
+$stmt->bind_param("issss", $id_seccion_1, $ID_4_1, $Serial_4_2, $ID_5_1, $Serial_5_2);
+if ($stmt->execute()) {
+
+    echo "DETALLE 1 Insertado correctamente, " ;
+} else {
+    echo "Error en la inserción: " . $stmt->error;
+}
+$stmt->close();
+
+
+
+
+// ----------------------------------------------------------------
 
 //INSERT SECCION 2
 
@@ -179,6 +212,8 @@ $stmt->bind_param('iiiiisiiiiiiiiisssiiiiiiiiii',
 if ($stmt->execute()) {
     $inserted_id = $stmt->insert_id;
     echo "Insertado correctamente, ID generado: " . $inserted_id;
+    $id_seccion_2 = $inserted_id;
+
 } else {
     echo "Error en la insercion: " . $stmt->error;
 }
@@ -186,6 +221,34 @@ if ($stmt->execute()) {
 $stmt->close();
 
 //
+
+
+//INSERT DETALLES 2 --------------------------------------------------------------------------------------------------------------------------------
+
+
+// Definición de variables
+$Observacion_23_1 = $_POST['23_1_Observacion'];
+$IndicarCuales_38_2 = $_POST['38_2_IndicarCuales'];
+$RecibeTratamiento_38_3 = $_POST['38_3_RecibeTratamiento'];
+$Cual_39_2 = $_POST['39_2_Cual'];
+
+
+
+// Script de inserción
+$sql = "INSERT INTO Detalles_seccion2 (id_seccion_2, 23_1_Observacion, 38_2_IndicarCuales, 38_3_RecibeTratamiento, 39_2_Cual) VALUES (?, ?, ?, ?, ?)";
+$stmt = $mysqli->prepare($sql);
+$stmt->bind_param("issss", $id_seccion_2, $Observacion_23_1, $IndicarCuales_38_2, $RecibeTratamiento_38_3, $Cual_39_2);
+if ($stmt->execute()) {
+    echo "DETALLE 2 Insertado correctamente";
+} else {
+    echo "Error en la insercion: " . $stmt->error;
+}
+$stmt->close();
+
+
+
+
+// --------------------------------------------------------------------------------------------------------------------------------
 
 //INSERT SECCION 3
 
@@ -213,6 +276,7 @@ if (!$stmt->execute()) {
 if ($stmt->execute()) {
     $inserted_id = $stmt->insert_id;
     echo "Insertado correctamente, ID generado: " . $inserted_id;
+    $id_seccion_3 = $inserted_id;
 } else {
     echo "Error en la insercion: " . $stmt->error;
 }
@@ -220,6 +284,35 @@ if ($stmt->execute()) {
 $stmt->close();
 
 //
+
+
+
+
+//INSERT DETALLES 3 --------------------------------------------------------------------------------------------------------------------
+
+
+// Definición de variables
+$Cual_57_1 = $_POST['57_1_Cual'];
+$PesoKilogramos_74_1 = $_POST['74_1_PesoKilogramos'];
+$TallaCentimetros_74_2 = $_POST['74_2_TallaCentimetros'];
+$Cuales_78_2 = $_POST['78_2_Cuales'];
+
+
+
+// Script de inserción
+$sql = "INSERT INTO Detalles_seccion3 (id_seccion_3, 74_1_PesoKilogramos, 74_2_TallaCentimetros, 78_2_Cuales, 80_2_Cual) VALUES (?, ?, ?, ?, ?)";
+$stmt = $mysqli->prepare($sql);
+$stmt->bind_param("issss", $id_seccion_3, $Cual_57_1, $PesoKilogramos_74_1, $TallaCentimetros_74_2, $Cuales_78_2);
+if ($stmt->execute()) {
+    echo "DETALLE 3 Insertado correctamente";
+} else {
+    echo "Error en la insercion: " . $stmt->error;
+}
+$stmt->close();
+
+
+
+// ---------------------------------------------------------------------------------------------------------------------------------------
 
 //INSERT SECCION 4
 
@@ -242,6 +335,7 @@ $stmt->bind_param('iiiiisisiisssiiii',
 if ($stmt->execute()) {
     $inserted_id = $stmt->insert_id;
     echo "Insertado correctamente, ID generado: " . $inserted_id;
+    $id_seccion_4 = $inserted_id;
 } else {
     echo "Error en la insercion: " . $stmt->error;
 }
@@ -249,5 +343,42 @@ if ($stmt->execute()) {
 $stmt->close();
 
 //
+
+
+// INSERT DETALLE 4 -----------------------------------------------------------------------------------------
+
+// Definición de variables
+$Cual_82_2 = $_POST['82_2_Cual'];
+$Cual_83_2 = $_POST['83_2_Cual'];
+$Cual_84_2 = $_POST['84_2_Cual'];
+$Cual_85_2 = $_POST['85_2_Cual'];
+$Cual_90_2 = $_POST['90_2_Cual'];
+$Cuales_91_2 = $_POST['91_2_Cuales'];
+$Especifique_92_2 = $_POST['92_2_Especifique'];
+$Cual_94_2 = $_POST['94_2_Cual'];
+$RegistrarCantidad_94_3 = $_POST['94_3_RegistrarCantidad'];
+$Cual_95_2 = $_POST['95_2_Cual'];
+$Cual_96_2 = $_POST['96_2_Cual'];
+$Cual_97_2 = $_POST['97_2_Cual'];
+$Cual_98_2 = $_POST['98_2_Cual'];
+
+
+// Script de inserción
+$sql = "INSERT INTO Detalles_seccion4 (id_seccion_4, 82_2_Cual, 83_2_Cual, 84_2_Cual, 85_2_Cual, 90_2_Cual, 91_2_Cuales, 92_2_Especifique, 94_2_Cual, 94_3_RegistrarCantidad, 95_2_Cual, 96_2_Cual, 97_2_Cual, 98_2_Cual) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+$stmt = $mysqli->prepare($sql);
+$stmt->bind_param("issssssssissss", $id_seccion_4, $Cual_82_2, $Cual_83_2, $Cual_84_2, $Cual_85_2, $Cual_90_2, $Cuales_91_2, $Especifique_92_2, $Cual_94_2, $RegistrarCantidad_94_3, $Cual_95_2, $Cual_96_2, $Cual_97_2, $Cual_98_2);
+if ($stmt->execute()) {
+    echo "DETALLE 4 Insertado correctamente";
+} else {
+    echo "Error en la insercion: " . $stmt->error;
+}
+$stmt->close();
+
+
+//-----------------------------------------------------------------------------------------------------------------
+
+
+
+
 
 ?>
