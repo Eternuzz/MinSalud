@@ -315,7 +315,7 @@ function valores($Resultados){
 
                         <div class="sub-title_extend"> <b>35.</b>Familia con vivencia de sucesos vitales normativos y no normativos ( Eventos significativos que inciden de manera positiva o negativa en la 
                             persona y familia por ejemplo: Ingreso de niños estudiar, muerte familiar, accidente que genera discapacidad, separación pareja, entre otros)</div>
-                                                <div class="checks">
+                        <div class="checks">
                             <div class="check">
                                 <input type="radio" id="" name="35_FamSucesosVit" value="SI">
                                 <label >SI</label><br>
@@ -769,7 +769,7 @@ function valores($Resultados){
                             </div>
 
                         <div class="sub-title dnone" id="78_2t"> <b>78.2.</b> Cuales</div>
-                        <input type="date" class="input_general dnone" id="78_2v" name="78_2_Cuales">
+                        <input type="text" class="input_general dnone" id="78_2v" name="78_2_Cuales">
 
                         <div class="sub-title"> <b>79.</b> ¿Esta recibiendo atención y tratamiento para la enfermedad actual?</div>
                         <div class="checks">

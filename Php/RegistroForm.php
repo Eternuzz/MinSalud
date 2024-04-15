@@ -147,7 +147,7 @@ if ($stmt === false) {
 }
 
 // Vincular parametros
-$stmt->bind_param('isssssssiiiiiissssss', $Departamento_1, $UnidadZonal_2, $Municipio_3, $Territorio_4, $Microterritorio_5, $Corregimiento_6, $Direccion_7, $Geopunto_8, $UbicacionHogar_9, $NumIdFamilia_10, $EstratoSoc_11, $NumHogares_12, $NumFamilias_13, $NumPersonas_14, $IdEBS_15, $PrestadorPrim_16, $RespEvaluacion_17, $PerfilEvaluador_18, $CodigoFicha_19, $FechaDilig_20);
+$stmt->bind_param('issssssssiiiiissssss', $Departamento_1, $UnidadZonal_2, $Municipio_3, $Territorio_4, $Microterritorio_5, $Corregimiento_6, $Direccion_7, $Geopunto_8, $UbicacionHogar_9, $NumIdFamilia_10, $EstratoSoc_11, $NumHogares_12, $NumFamilias_13, $NumPersonas_14, $IdEBS_15, $PrestadorPrim_16, $RespEvaluacion_17, $PerfilEvaluador_18, $CodigoFicha_19, $FechaDilig_20);
 
 // Ejecutar y verificar el resultado
 if ($stmt->execute()) {
@@ -200,7 +200,7 @@ if ($stmt === false) {
 }
 
 // Vincular parametros
-$stmt->bind_param('iiiiisiiiiiiiiisssiiiiiiiiii', 
+$stmt->bind_param('iiiississssssissssisssssssss', 
     $TipoFamilia_21, $NumPerFamilia_22, $EstrucDinamica_23, $FuncFamilia_24, $CuidadorPrinc_25, $EscalaZarit_26, 
     $Interrelaciones_27, $FamNiñosAdoles_28, $GestanteFam_29, $FamAdultMayores_30, $FamVicConflicto_31, 
     $FamDiscapacidad_32, $FamEnfCronica_33, $FamEnfTrans_34, $FamSucesosVit_35, $FamVulnSocial_36, 
@@ -261,7 +261,7 @@ if ($stmt === false) {
 }
 
 // Vincular parametros
-$stmt->bind_param('sssssisiiisiiiiisiiissssssiisssis', 
+$stmt->bind_param('sssssisiissisiissssissssssissssis', 
     $PrimerNombre_49, $SegundoNombre_50, $PrimerApellido_51, $SegundoApellido_52, $TipoIdent_53, $NumIdent_54, 
     $FechaNac_55, $Sexo_56, $RolFamilia_57, $Ocupacion_58, $NivelEdu_59, $RegimenAfiliacion_60, $EAPB_61,
     $GrupoEspecial_62, $PertenenciaEtnica_63, $ComunPuebloInd_64, $Discapacidad_65, $CondSaludCronica_66, 
@@ -378,7 +378,11 @@ $stmt->close();
 //-----------------------------------------------------------------------------------------------------------------
 
 
-
+$insert_form = "INSERT INTO forms (id_seccion1,id_seccion2,id_seccion3,id_seccion4) VALUES ($id_seccion_1,$id_seccion_2,$id_seccion_3,$id_seccion_4)";
+$ejecutar = mysqli_query($mysqli,$insert_form);
+if($ejecutar){
+    ECHO "INSERTTS FORMS CORRECTO ";
+}
 
 // campo 25 aparece 0 en vez de NO
 ?>

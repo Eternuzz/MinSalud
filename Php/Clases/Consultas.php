@@ -22,6 +22,12 @@ class Consultas{
 
     }
 
+    public function DatosSeccion1(){
+        $SQL = "SELECT * FROM seccion_1 s1 INNER JOIN 1_departamento dp ON s1.1_Departamento=dp.id";
+        $Ejecutar_Consulta =mysqli_query($this->Conexion,$SQL);
+
+    }
+
 }
 
 ?>
