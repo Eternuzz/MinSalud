@@ -300,7 +300,7 @@ $Cuales_78_2 = $_POST['78_2_Cuales'];
 
 
 // Script de inserción
-$sql = "INSERT INTO Detalles_seccion3 (id_seccion_3, 74_1_PesoKilogramos, 74_2_TallaCentimetros, 78_2_Cuales, 80_2_Cual) VALUES (?, ?, ?, ?, ?)";
+$sql = "INSERT INTO Detalles_seccion3 (id_seccion_3,57_1_cual, 74_1_PesoKilogramos, 74_2_TallaCentimetros, 78_2_Cuales) VALUES (?, ?, ?, ?, ?)";
 $stmt = $mysqli->prepare($sql);
 $stmt->bind_param("issss", $id_seccion_3, $Cual_57_1, $PesoKilogramos_74_1, $TallaCentimetros_74_2, $Cuales_78_2);
 if ($stmt->execute()) {
@@ -380,5 +380,6 @@ $stmt->close();
 
 
 
-
+// campo 25 aparece 0 en vez de NO
 ?>
+
