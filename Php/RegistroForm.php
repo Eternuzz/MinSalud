@@ -325,7 +325,7 @@ if ($stmt === false) {
 }
 
 // Vincular parametros
-$stmt->bind_param('iiiiisisiisssiiii', 
+$stmt->bind_param('iiiiisisissssiiii', 
     $TipoVivienda_82, $MaterialParedes_83, $MaterialPiso_84, $MaterialTecho_85, $NumCuartos_86, 
     $Hacinamiento_87, $RiesgoAccidente_88, $AccesoServicios_89, $FuenteEnergiaCocinar_90, 
     $CriaderosVectores_91, $PresenciaPlagas_92, $ActEconomica_93, $AnimalesConvivencia_94, 

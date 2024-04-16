@@ -3,7 +3,7 @@
 require_once "Conexion.php";
 
 //$SQL = "SELECT * FROM seccion_1 s1 INNER JOIN 1_departamento dp ON s1.1_Departamento=dp.id";
-$SQL = "SELECT f.*,s1.*,s2.*,s3.*,s4.*,tab1.dato AS dato1 ,
+$SQL = "SELECT f.*,s1.*,s2.*,s3.*,s4.*,d1.*,d2.*,d3.*,d4.*,tab1.dato AS dato1 ,
 tab11.dato AS dato11,
 tab21.dato AS dato21,
 tab23.dato AS dato23,
@@ -21,6 +21,9 @@ tab65.dato AS dato65,
 tab68.dato AS dato68,
 tab69.dato AS dato69,
 tab75.dato AS dato75,
+tab77.dato AS dato77,
+tab80.dato AS dato80,
+tab81.dato AS dato81,
 tab82.dato AS dato82,
 tab83.dato AS dato83,
 tab84.dato AS dato84,
@@ -38,6 +41,10 @@ FROM forms f INNER JOIN seccion_1 s1 ON f.id_seccion1=s1.id_seccion_1
 INNER JOIN seccion_2 s2 ON f.id_seccion2=s2.id_seccion_2
 INNER JOIN seccion_3 s3 ON f.id_seccion3=s3.id_seccion_3
 INNER JOIN seccion_4 s4 ON f.id_seccion4=s4.id_seccion_4
+INNER JOIN detalles_seccion1 d1 ON d1.id_seccion_1=s1.id_seccion_1
+INNER JOIN detalles_seccion2 d2 ON d2.id_seccion_2=s2.id_seccion_2
+INNER JOIN detalles_seccion3 d3 ON d3.id_seccion_3=s3.id_seccion_3
+INNER JOIN detalles_seccion4 d4 ON d4.id_seccion_4=s4.id_seccion_4
 INNER JOIN 1_departamento tab1 ON tab1.id=s1.1_Departamento
 INNER JOIN 11_estratoSoc tab11 ON tab11.id=s1.11_EstratoSoc
 INNER JOIN 21_tipofamilia tab21 ON tab21.id=s2.21_TipoFamilia
@@ -55,6 +62,7 @@ INNER JOIN 63_pertenenciaetnica tab63 ON tab63.id = s3.63_PertenenciaEtnica
 INNER JOIN 65_discapacidad tab65 ON tab65.id = s3.65_Discapacidad
 INNER JOIN 68_intervpendientes tab68 ON tab68.id = s3.68_IntervPendientes
 INNER JOIN 69_motivonoatencion tab69 ON tab69.id = s3.69_MotivoNoAtencion
+INNER JOIN 77_signosdesnutraguda tab77 ON tab77.id = s3.77_SignosDesnutrAguda
 INNER JOIN 75_diagnutric tab75 ON tab75.id = s3.75_DiagNutric
 INNER JOIN 80_motivosinatencion tab80 ON tab80.id = s3.80_MotivoSinAtencion
 INNER JOIN 81_medicinatradicional tab81 ON tab81.id = s3.81_MedicinaTradicional
@@ -84,11 +92,15 @@ $Ejecutar_Consulta =mysqli_query($mysqli,$SQL);
 
 $columnMapping = [
     //'1_Departamento' => 'Departamento',
-    'dato1' => 'Departamento',
-    '2_UnidadZonal' => 'Unidad Zonal de Planeación y Evaluación - Regional - Provincia',
+    'dato1' => '1. Departamento',
+    '2_UnidadZonal' => '2. Unidad Zonal de Planeación y Evaluación - Regional - Provincia',
     '3_Municipio' => '3. Municipio / Área no municipalizada',
     '4_Territorio' => '4. Territorio',
+    '4_1_ID' => '4.1 ID',
+    '4_2_Serial' => '4.2 Serial',
     '5_Microterritorio' => '5. Microterritorio',
+    '5_1_ID' => '5.1 ID',
+    '5_2_Serial' => '5.2 Serial',
     '6_Corregimiento' => '6. Corregimiento / Centro de poblado / Vereda / Localidad/ Barrio/ Resguardo Indígena',
     '7_Direccion' => '7. Dirección',
     '8_Geopunto' => '8. Geopunto (online-offline) y altitud',
@@ -106,7 +118,8 @@ $columnMapping = [
     '20_FechaDilig' => '20. Fecha diligenciamiento de la ficha',
     'dato21' => '21. Tipo de familia',
     '22_NumPerFamilia' => '22. Número de personas que conforman la familia',
-    'dato23' => '23. Estructura y dinámica familiar (Diligenciamiento Familiograma)',
+    'dato23' => '23. Estructura y dinámica familiar (Diligenciamiento Familiograma) Seleccione Tipo De Riesgo Identificado',
+    '23_1_Observacion' => '23.1 Observación',
     'dato24' => '24. Funcionalidad de la familia (Apgar familiar)',
     '25_CuidadorPrinc' => '25. En la familia se identifica un cuidador principal',
     'dato26' => '26. Si la respuesta anterior es SI aplicar escala ZARIT y registre aquí el resultado',
@@ -122,7 +135,10 @@ $columnMapping = [
     '36_FamVulnSocial' => '36. Familia en situación de vulnerabilidad social',
     '37_PractCuidadoSalud' => '37. Familias con prácticas de cuidado de salud críticas',
     '38_AntecEnfermedades' => '38. Familia con integrantes con antecedentes de enfermedades crónicas',
+    '38_2_IndicarCuales' => '38.2 Indicar cuáles',
+    '38_3_RecibeTratamiento' => '38.3 ¿Recibe tratamiento?',
     'dato39' => '39. Cómo obtiene sus alimentos',
+    '39_2_Cual' => '39.2 ¿Cuál?',
     '40_HabitosSaludables' => '40. Hábitos de vida saludable',
     '41_RecSocioemocionales' => '41. Recursos socioemocionales que potencian el cuidado de la salud de la familia',
     '42_PractCuidadoEnt' => '42. Prácticas para el cuidado y protección de los entornos',
@@ -141,6 +157,7 @@ $columnMapping = [
     '55_FechaNac' => '55. Fecha de nacimiento',
     'dato56' => '56. Sexo',
     'dato57' => '57. Rol dentro de la familia',
+    '57_1_Cual' => '57.1 ¿Cuál?',
     '58_Ocupacion' => '58. Ocupación',
     '59_NivelEdu' => '59. Nivel Educativo',
     'dato60' => '60. Régimen de afiliación',
@@ -158,37 +175,62 @@ $columnMapping = [
     '72_DuracLactMat' => '72. Si es menor de 2 años, ¿hasta cuando recibió lactancia materna?',
     '73_Menor5Anos' => '73. ¿Es menor de 5 años?',
     '74_MedidasAntrop' => '74. Resultado de toma de medidas antropométricas',
+    '74_1_PesoKilogramos' => '74.1 Peso en Kilogramos',
+    '74_2_TallaCentimetros' => '74.2 Talla en Centímetros',
     'dato75' => '75. Diagnóstico nutricional indicador Peso para la talla',
     '76_RiesgoMuerteDesnutr' => '76. Medida complementaria identificación de riesgo de muerte por desnutrición aguda',
     'dato77' => '77. Se identifican signos físicos de desnutrición aguda',
     '78_EnfermedadMes' => '78. ¿Actualmente presenta o ha presentado en el último mes alguna enfermedad?',
+    '78_2_Cuales' => '78.2 ¿Cuáles?',
     '79_AtencionEnfermedad' => '79. ¿Está recibiendo atención y tratamiento para la enfermedad actual?',
     'dato80' => '80. Si la respuesta a la pregunta anterior es NO, motivo por el cual no ha recibido la atención',
     'dato81' => '81. Si pertenece a población étnica, ¿actualmente es acompañado u orientado por algún agente de la medicina tradicional?',
     'dato82' => '82. Tipo de vivienda',
+    '82_2_Cual' => '82.2 ¿Cuál?',
     'dato83' => '83. ¿Cuál es el material predominante de las paredes?',
+    '83_2_Cual' => '83.2 ¿Cuál?',
     'dato84' => '84. ¿Cuál es el material predominante del piso de la vivienda?',
+    '84_2_Cual' => '84.2 ¿Cuál?',
     'dato85' => '85. ¿Cuál es el material predominante del techo?',
+    '85_2_Cual' => '85.2 ¿Cuál?',
     '86_NumCuartos' => '86. ¿De cuántos cuartos o piezas dormitorio dispone esta vivienda?',
     '87_Hacinamiento' => '87. Hacinamiento',
     'dato88' => '88. Se identifican algunos de los siguientes escenarios de riesgo de accidente en la vivienda',
     'dato89' => '89. Desde la vivienda se puede acceder fácilmente a',
     'dato90' => '90. ¿Cuál fuente de energía o combustible que se usa para cocinar?',
+    '90_2_Cual' => '90.2 ¿Cuál?',
     '91_CriaderosVectores' => '91. ¿Se observa cerca de la vivienda o dentro de ella criaderos o reservorios que pueden favorecer la presencia de vectores transmisores de enfermedades?',
+    '91_2_Cuales' => '91.2 ¿Cuáles?',
     'dato92' => '92. Observe si cerca de la vivienda hay alguno de los siguientes',
+    '92_2_Especifique' => '92.2 Especifique',
     '93_ActEconomica' => '93. ¿Al interior de la vivienda se realiza alguna actividad económica?',
     'dato94' => '94. Señale los animales que conviven con la familia dentro de la vivienda o en su entorno inmediato',
+    '94_2_Cual' => '94.2 ¿Cuál?',
+    '94_3_RegistrarCantidad' => '94.3 Registrar Cantidad',
     'dato95' => '95. ¿Cuál es la principal fuente de abastecimiento de agua para consumo humano en la vivienda?',
+    '95_2_Cual' => '95.2 ¿Cuál?',
     'dato96' => '96. ¿Cuál es el sistema de disposición de excretas en la vivienda?',
+    '96_2_Cual' => '96.2 ¿Cuál?',
     'dato97' => '97. ¿Cuál es el sistema de disposición de aguas residuales domésticas en la vivienda?',
-    'dato98' => '98. ¿Cómo se realiza la disposición final de los residuos sólidos ordinarios de la vivienda?'
+    '97_2_Cual' => '97.2 ¿Cuál?',
+    'dato98' => '98. ¿Cómo se realiza la disposición final de los residuos sólidos ordinarios de la vivienda?',
+    '98_2_Cual' => '98.2 ¿Cuál?'
 
 ];
+/*
 
-header('Content-Type: text/csv');
-header('Content-Disposition: attachment; filename="datos.csv"');
+
+
+*/
+if($Ejecutar_Consulta){
+
+    header('Content-Type: text/csv; charset=UTF-8');
+    header('Content-Disposition: attachment; filename="datos.csv"');
+
+
 
 $csvFile = fopen('php://output', 'w');
+fprintf($csvFile, chr(0xEF).chr(0xBB).chr(0xBF));
 
     // Escribir los nuevos nombres de columnas en el CSV
     fputcsv($csvFile, array_values($columnMapping));
@@ -206,5 +248,7 @@ $csvFile = fopen('php://output', 'w');
     // Cerrar archivo
     fclose($csvFile);
 
-
+}else{
+    echo "Error en la consulta";
+}
 ?>

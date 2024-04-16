@@ -3,7 +3,7 @@
 $host = '127.0.0.1';
 $dbname = 'minsalud2';
 $username = 'root';
-$password = '12345';
+$password = 'yzqaffuwhe1';
 $charset = 'utf8mb4';
 
 // DSN (Data Source Name)
