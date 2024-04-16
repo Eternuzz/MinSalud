@@ -1,12 +1,3 @@
-/*var selectElements = document.querySelectorAll('.miClaseSelect');
-
-// Añadir un manejador de evento 'change' a cada elemento <select>
-selectElements.forEach(function(selectElement) {
-    selectElement.addEventListener('change', function() {
-        var textoSeleccionado = this.options[this.selectedIndex].text;
-        console.log('Texto seleccionado:', textoSeleccionado);
-    });
-});*/
 
 
 // Seleccionar todos los elementos <select> con la clase 'miClaseSelect'
