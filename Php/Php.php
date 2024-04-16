@@ -1,4 +1,5 @@
 <?php
+/*
 '3_Municipio' => '3. Municipio / Área no municipalizada',
 '4_Territorio' => '4. Territorio',
 '5_Microterritorio' => '5. Microterritorio',
@@ -96,23 +97,5 @@
 'dato97' => '97. ¿Cuál es el sistema de disposición de aguas residuales domésticas en la vivienda?',
 'dato98' => '98. ¿Cómo se realiza la disposición final de los residuos sólidos ordinarios de la vivienda?'
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+*/
 ?>

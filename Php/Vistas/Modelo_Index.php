@@ -29,29 +29,34 @@ function valores($Resultados){
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="Css/StyleModel.css">
+    <link rel="stylesheet" href="/Proyectos/Minsalud/Css/StyleModel4.css">
     <title>MinSalud</title>
 </head>
 <body>
 
     <header>
+    <div class="contain_logo">
 
+    </div>
+    <div class="contain_titulo">
+        
+    </div>
         
 
     </header>
 
 
-    <form action="Php/RegistroForm.php" method="post">
+    <form action="/Proyectos/MinSalud/Php/Processes/RegistFormUser.php" method="post">
 
         <!-- Seccion 1. Informacion General -->
-        <section class="section_1">
+        <section class="section_1" id="seccion1">
 
             <div class="titulo_seccion">1. INFORMACIÓN GENERAL</div>
 
             <div class="contain_subs">
 
                 <!-- SubSeccion 1.1 Datos generales del escenario del entorno que se caracteriza -->
-                <div class="sub_section1_1">
+                <div class="sub_section1_1" id="1_1">
                     <div class="titulo_seccion">1.1 Datos generales del escenario del entorno que se caracteriza</div>
 
 
@@ -113,16 +118,21 @@ function valores($Resultados){
                         
                         <div class="sub-title"> <b>14.</b> Número de personas en la vivienda</div>
                         <input type="number" class="input_general" name="14_NumPersonas">
+
+                        <div class="botones input_general">
+                            <i ></i>
+                            <button type="button" class="boton_a border_right" onclick="mostrarSeccion('1_2')">Siguiente</button>
+                        </div>
                         
 
                     </div>
                 </div>
 
                 <!-- SubSeccion 1.2 Identificación del encuestador -->
-                <div class="sub_section1_1">
+                <div class="sub_section1_1" id="1_2">
                     <div class="titulo_seccion">1.2 Identificación del encuestador</div>
 
-                    <div class="content_section1_1">
+                    <div class="content_section1_1" id="1_1">
 
                         <div class="sub-title"> <b>15.</b>  Número de identificación del Equipo Básico de Salud (EBS) </div>
                         <input type="text" class="input_general" name="15_IdEBS">
@@ -142,8 +152,10 @@ function valores($Resultados){
                         <div class="sub-title"> <b>20.</b> Fecha diligencimiento de la ficha</div>
                         <input type="date" class="input_general" name="20_FechaDilig">
 
-                        <div class="sub-title"> <b></b></div>
-                        <a href="#seccion2" class="input_general" name="" >Siguiente</a>
+                        <div class="botones input_general">
+                            <button type="button" class="boton_a border_right" onclick="mostrarSeccion('1_1')">Atras</button>
+                            <a class="boton_a border_right" href="#seccion2" onclick="mostrarSeccion('2_1')">Siguiente</a>
+                        </div>
 
                     </div>
 
@@ -168,7 +180,7 @@ function valores($Resultados){
             <div class="contain_subs">
 
                 <!-- SubSeccion 1.1 Datos generales del escenario del entorno que se caracteriza -->
-                <div class="sub_section1_1">
+                <div class="sub_section1_1" id="2_1">
                     <div class="titulo_seccion">2.1 Estructura y contexto familiar</div>
 
 
@@ -204,7 +216,8 @@ function valores($Resultados){
                           </select>
 
 
-                        <div class="sub-title-large"> <b>25.</b> En la familia se identifica un cuidador principal de niños, niñas, persona con discapacidad, adulto mayor o enfermedad?</div>
+                        <div class="sub-title"> <b>25.</b> En la familia se identifica un cuidador principal de niños, niñas, persona con discapacidad, adulto mayor o enfermedad?</div>
+                        <input type="hidden" name="25_CuidadorPrinc">
                         <div class="checks">
                             <div class="check">
                                 <input type="radio" id="opcion1" name="25_CuidadorPrinc" value="SI" onclick="MostrarDiv('26_t','26_v','SI')">
@@ -232,16 +245,22 @@ function valores($Resultados){
                             ?>
                           </select>
 
+                        <div class="botones input_general">
+                            <a href="#seccion1" class="boton_a border_right" onclick="mostrarSeccion('1_2')">Atras</a>
+                            <button type="button" class="boton_a border_right"  onclick="mostrarSeccion('2_2')">Siguiente</button>
+                        </div>
+
                     </div>
                 </div>
 
                 <!-- SubSeccion 2.2  Situaciones o condiciones de especial protección de la familia y sus integrantes -->
-                <div class="sub_section1_1">
+                <div class="sub_section1_1" id="2_2">
                     <div class="titulo_seccion">2.2  Situaciones o condiciones de especial protección de la familia y sus integrantes</div>
 
                     <div class="content_section1_1">
 
                         <div class="sub-title"> <b>28.</b> Familia con niñas, niños y adolescentes </div>
+                        <input type="hidden" name="28_FamNiñosAdoles">
                         <div class="checks">
                             <div class="check">
                                 <input type="radio" id="" name="28_FamNiñosAdoles" value="SI">
@@ -254,6 +273,7 @@ function valores($Resultados){
                         </div>
     
                         <div class="sub-title"> <b>29.</b> Gestante en la familia</div>
+                        <input type="hidden" name="29_GestanteFam">
                                                 <div class="checks">
                             <div class="check">
                                 <input type="radio" id="" name="29_GestanteFam" value="SI">
@@ -266,6 +286,8 @@ function valores($Resultados){
                         </div>
 
                         <div class="sub-title"> <b>30.</b> Familia con personas adultos mayores </div>
+                        <input type="hidden" name="30_FamAdultMayores">
+
                                                 <div class="checks">
                             <div class="check">
                                 <input type="radio" id="" name="30_FamAdultMayores" value="SI">
@@ -278,6 +300,8 @@ function valores($Resultados){
                         </div>
     
                         <div class="sub-title"> <b>31.</b> Familia víctima del conflicto armado </div>
+                        <input type="hidden" name="31_FamVicConflicto">
+
                                                 <div class="checks">
                             <div class="check">
                                 <input type="radio" id="" name="31_FamVicConflicto" value="SI">
@@ -290,6 +314,7 @@ function valores($Resultados){
                         </div>
 
                         <div class="sub-title"> <b>32.</b>  Familia que convive con personas con discapacidad </div>
+                        <input type="hidden" name="32_FamDiscapacidad">
                         <div class="checks">
                             <div class="check">
                                 <input type="radio" id="" name="32_FamDiscapacidad" value="SI">
@@ -301,7 +326,8 @@ function valores($Resultados){
                             </div>
                         </div>
     
-                        <div class="sub-title-large"> <b>33.</b> Familia que convive con personas que presentan alguna enfermedad crónica,huérfana o en estado terminal</div>
+                        <div class="sub-title"> <b>33.</b> Familia que convive con personas que presentan alguna enfermedad crónica,huérfana o en estado terminal</div>
+                        <input type="hidden" name="33_FamEnfCronica">
                         <div class="checks">
                             <div class="check">
                                 <input type="radio" id="" name="33_FamEnfCronica" value="SI">
@@ -320,8 +346,9 @@ function valores($Resultados){
                             ?>
                         </select>
 
-                        <div class="sub-title_extend"> <b>35.</b>Familia con vivencia de sucesos vitales normativos y no normativos ( Eventos significativos que inciden de manera positiva o negativa en la 
+                        <div class="sub-title"> <b>35.</b>Familia con vivencia de sucesos vitales normativos y no normativos ( Eventos significativos que inciden de manera positiva o negativa en la 
                             persona y familia por ejemplo: Ingreso de niños estudiar, muerte familiar, accidente que genera discapacidad, separación pareja, entre otros)</div>
+                            <input type="hidden" name="35_FamSucesosVit">
                         <div class="checks">
                             <div class="check">
                                 <input type="radio" id="" name="35_FamSucesosVit" value="SI">
@@ -333,9 +360,10 @@ function valores($Resultados){
                             </div>
                         </div>
                         
-                        <div class="sub-title_extend"> <b>36.</b>Familia en situación de vulnerabilidad social (Consumo de SPA - Alcohol, explotación sexual, trabajo infantil, conflictos interpersonales, 
+                        <div class="sub-title"> <b>36.</b>Familia en situación de vulnerabilidad social (Consumo de SPA - Alcohol, explotación sexual, trabajo infantil, conflictos interpersonales, 
                             violencia intrafamiliar, trastorno mental, entre otras</div>
-                                                <div class="checks">
+                            <input type="hidden" name="36_FamVulnSocial">
+                        <div class="checks">
                             <div class="check">
                                 <input type="radio" id="" name="36_FamVulnSocial" value="SI">
                                 <label >SI</label><br>
@@ -346,9 +374,10 @@ function valores($Resultados){
                             </div>
                         </div>
                         
-                        <div class="sub-title_extend"> <b>37.</b>Familias con prácticas de cuidado de salud críticas de varios de sus integrantes que ponen en riesgo o han afectado en la salud (Hábitos
+                        <div class="sub-title"> <b>37.</b>Familias con prácticas de cuidado de salud críticas de varios de sus integrantes que ponen en riesgo o han afectado en la salud (Hábitos
                             alimentarios, situaciones de abandono)
                             </div>
+                            <input type="hidden" name="37_PracCuidadoSalud">
                                                 <div class="checks">
                             <div class="check">
                                 <input type="radio" id="" name="37_PracCuidadoSalud" value="SI">
@@ -361,6 +390,7 @@ function valores($Resultados){
                         </div>
                         
                         <div class="sub-title"> <b>38.</b>Familia con integrantes con antecedentes de Ca, HTA, Diabetes, Asma, Enfermedad cardiaca, otra</div>
+                        <input type="hidden" name="38_AntecEnfermedades">
                         <div class="checks">
                             <div class="check">
                                 <input type="radio" id="" name="38_AntecEnfermedades" value="SI" onclick="MostrarDiv('38_2t','38_2v','SI');MostrarDiv('38_3t','38_3v','SI')">
@@ -398,6 +428,11 @@ function valores($Resultados){
                         <div class="sub-title dnone" id="39t" > <b>39.2.</b>Cuál?</div>
                         <input type="text" class="input_general dnone" name="39_2_Cual" id="39v">
 
+                        <div class="botones input_general">
+                            <button type="button" class="boton_a border_right" onclick="mostrarSeccion('2_1')">Atras</button>
+                            <button type="button" class="boton_a border_right"  onclick="mostrarSeccion('2_3')">Siguiente</button>
+                        </div>
+
 
                     </div>
 
@@ -406,13 +441,14 @@ function valores($Resultados){
 
 
                 <!-- SubSeccion 2.3   Prácticas o condiciones protectoras para el cuidado de la salud predominantes en la familia -->
-                <div class="sub_section1_1">
-                    <div class="titulo_seccion">2.3 Prácticas o condiciones protectoras para el cuidado de la salud predominantes en la familia</div>
+                <div class="sub_section1_1" id="2_3">
+                    <div class="titulo_seccion" >2.3 Prácticas o condiciones protectoras para el cuidado de la salud predominantes en la familia</div>
 
                     <div class="content_section1_1">
 
-                        <div class="sub-title_extend"> <b>40.</b>  Hábitos de vida saludable adaptado a las condiciones 
+                        <div class="sub-title"> <b>40.</b>  Hábitos de vida saludable adaptado a las condiciones 
                             contextuales y culturales de la familia y sus integrantes. </div>
+                            <input type="hidden" name="40_HabitosSaludables">
                         <div class="checks">
                             <div class="check">
                                 <input type="radio" id="" name="40_HabitosSaludables" value="SI">
@@ -424,8 +460,9 @@ function valores($Resultados){
                             </div>
                         </div>
     
-                        <div class="sub-title-large"> <b>41.</b> Recursos socioemocionales que 
+                        <div class="sub-title"> <b>41.</b> Recursos socioemocionales que 
                             potencian el cuidado de la salud de la familia</div>
+                            <input type="hidden" name="41_RecSocioemocionales">
                         <div class="checks">
                             <div class="check">
                                 <input type="radio" id="" name="41_RecSocioemocionales" value="SI">
@@ -438,6 +475,7 @@ function valores($Resultados){
                         </div>
 
                         <div class="sub-title"> <b>42.</b> Prácticas para el cuidado y protección de los entornos </div>
+                        <input type="hidden" name="42_PracCuidadoEnt">
                         <div class="checks">
                             <div class="check">
                                 <input type="radio" id="" name="42_PracCuidadoEnt" value="SI">
@@ -449,8 +487,9 @@ function valores($Resultados){
                             </div>
                         </div>
     
-                        <div class="sub-title-large"> <b>43.</b> Prácticas de favorecen el establecimiento 
+                        <div class="sub-title"> <b>43.</b> Prácticas de favorecen el establecimiento 
                             de relaciones sanas y constructivas </div>
+                            <input type="hidden" name="43_PracRelSanas">
                         <div class="checks">
                             <div class="check">
                                 <input type="radio" id="" name="43_PracRelSanas" value="SI">
@@ -462,8 +501,9 @@ function valores($Resultados){
                             </div>
                         </div>
 
-                        <div class="sub-title-large"> <b>44.</b>  Recursos sociales y comunitarios para el establecimiento 
+                        <div class="sub-title"> <b>44.</b>  Recursos sociales y comunitarios para el establecimiento 
                             de redes colectivas para la promoción de la salud. </div>
+                            <input type="hidden" name="44_RecSocComunitarios">
                         <div class="checks">
                             <div class="check">
                                 <input type="radio" id="" name="44_RecSocComunitarios" value="SI">
@@ -475,8 +515,9 @@ function valores($Resultados){
                             </div>
                         </div>
     
-                        <div class="sub-title-large"> <b>45.</b> Prácticas para la conservación de la autonomía 
+                        <div class="sub-title"> <b>45.</b> Prácticas para la conservación de la autonomía 
                             y la capacidad funcional de las personas mayores.</div>
+                            <input type="hidden" name="45_PracConsAutonomia">
                         <div class="checks">
                             <div class="check">
                                 <input type="radio" id="" name="45_PracConsAutonomia" value="SI">
@@ -488,8 +529,9 @@ function valores($Resultados){
                             </div>
                         </div>
                         
-                        <div class="sub-title-large"> <b>46</b>Prácticas para la prevención 
+                        <div class="sub-title"> <b>46</b>Prácticas para la prevención 
                             de enfermedades en todas las edades.</div>
+                            <input type="hidden" name="46_PracPrevEnferm">
                         <div class="checks">
                             <div class="check">
                                 <input type="radio" id="" name="46_PracPrevEnferm" value="SI">
@@ -501,8 +543,9 @@ function valores($Resultados){
                             </div>
                         </div>
                         
-                        <div class="sub-title_extend"> <b>47</b>Prácticas de cuidado desde los saberes ancestrales/tradicionales (aplica para 
+                        <div class="sub-title"> <b>47</b>Prácticas de cuidado desde los saberes ancestrales/tradicionales (aplica para 
                             poblaciones y comunidades indígenas, negras afrocolombianas, raizales, palenqueras y rom)</div>
+                            <input type="hidden" name="47_PracCuidadoAncestrales">
                         <div class="checks">
                             <div class="check">
                                 <input type="radio" id="" name="47_PracCuidadoAncestrales" value="SI">
@@ -514,7 +557,8 @@ function valores($Resultados){
                             </div>
                         </div>
                         
-                        <div class="sub-title-large"> <b>48</b>Capacidades de las familias para el ejercicio y exigibilidad del derecho a la salud</div>
+                        <div class="sub-title"> <b>48</b>Capacidades de las familias para el ejercicio y exigibilidad del derecho a la salud</div>
+                        <input type="hidden" name="48_CapDerechoSalud">
                         <div class="checks">
                             <div class="check">
                                 <input type="radio" id="" name="48_CapDerechoSalud" value="SI">
@@ -526,8 +570,10 @@ function valores($Resultados){
                             </div>
                         </div>
 
-                        <div class="sub-title"></div>
-                        <a href="#seccion3" class="input_general" name="" >Siguiente</a>
+                        <div class="botones input_general">
+                            <button type="button" class="boton_a border_right" onclick="mostrarSeccion('2_2')">Siguiente</button>
+                            <a class="boton_a border_right" href="#seccion3" onclick="mostrarSeccion('3_1')">Siguiente</a>
+                        </div>
 
                     </div>
 
@@ -549,7 +595,7 @@ function valores($Resultados){
             <div class="contain_subs">
 
                 <!-- SubSeccion 1.1 Datos generales del escenario del entorno que se caracteriza -->
-                <div class="sub_section1_1">
+                <div class="sub_section1_1" id="3_1">
                     <div class="titulo_seccion">3.1  Identificación de cada uno de los integrantes</div>
 
 
@@ -642,6 +688,7 @@ function valores($Resultados){
                           </select>
 
                         <div class="sub-title"> <b>66.</b> El integrante de la familia presenta situaciones o condiciones de salud crónica</div>
+                        <input type="hidden" name="66_CondSaludCronica">
                         <div class="checks">
                             <div class="check">
                                 <input type="radio" id="" name="66_CondSaludCronica" value="SI">
@@ -654,18 +701,22 @@ function valores($Resultados){
                         </div>
                         
              
-                        
+                        <div class="botones input_general">
+                            <a href="#seccion2" class="boton_a border_right" onclick="mostrarSeccion('2_3')">Atras</a>
+                            <button type="button" class="boton_a border_right"  onclick="mostrarSeccion('3_2')">Siguiente</button>
+                        </div>
 
                     </div>
                 </div>
 
                 <!-- SubSeccion 3.2 Situaciones o condiciones de salud -->
-                <div class="sub_section1_1">
+                <div class="sub_section1_1" id="3_2">
                     <div class="titulo_seccion">3.2 Situaciones o condiciones de salud</div>
 
                     <div class="content_section1_1">
 
-                        <div class="sub-title-large"> <b>67.</b>  Cumple con el esquema de atenciones de promoción y mantenimiento para el momento de curso de vida o para la gestación </div>
+                        <div class="sub-title"> <b>67.</b>  Cumple con el esquema de atenciones de promoción y mantenimiento para el momento de curso de vida o para la gestación </div>
+                        <input type="hidden" name="67_EsquemaPromocion">
                         <div class="checks">
                             <div class="check">
                                 <input type="radio" id="" name="67_EsquemaPromocion" value="SI">
@@ -684,7 +735,7 @@ function valores($Resultados){
                             ?>
                         </select>
 
-                        <div class="sub-title-large"> <b>69.</b> Motivo por el cual no ha recibido las atenciones de promoción y mantenimiento de la salud</div>
+                        <div class="sub-title"> <b>69.</b> Motivo por el cual no ha recibido las atenciones de promoción y mantenimiento de la salud</div>
                         <select class="input_general" name="69_MotivoNoAtencion">
                         <?php
                                 valores($consulta->DatesOfTables('69_MotivoNoAtencion'));
@@ -692,6 +743,7 @@ function valores($Resultados){
                         </select>
     
                         <div class="sub-title"> <b>70.</b>  ¿Realiza alguna práctica deportiva o realiza ejercicio?</div>
+                        <input type="hidden" name="70_PracDeportiva">
                         <div class="checks">
                             <div class="check">
                                 <input type="radio" id="" name="70_PracDeportiva" value="SI">
@@ -704,6 +756,7 @@ function valores($Resultados){
                         </div>
 
                         <div class="sub-title"> <b>71.</b>  Si es menor de 6 meses, ¿recibe lactancia materna exclusiva? </div>
+                        <input type="hidden" name="71_LactMatExclusiva">
                         <div class="checks">
                             <div class="check">
                                 <input type="radio" id="" name="71_LactMatExclusiva" value="SI">
@@ -713,16 +766,17 @@ function valores($Resultados){
                                 <input type="radio" id="" name="71_LactMatExclusiva" value="NO">
                                 <label >NO</label><br>
                             </div>
-                            <div class="check">
+                            <!-- <div class="check">
                                 <input type="radio" id="" name="71_LactMatExclusiva" value="NO APLICA">
                                 <label >No Aplica</label><br>
-                            </div>
+                            </div> -->
                         </div>
     
                         <div class="sub-title -large"> <b>72.</b> Si es menor de 2 años, ¿hasta cuando recibio lactancia materna? (en meses)</div>
                         <input type="number" class="input_general" name="72_DuracLactMat">
 
                         <div class="sub-title"> <b>73.</b>  Es menor de 5 años?</div>
+                        <input type="hidden" name="73_Menor5Años">
                         <div class="checks">
                             <div class="check">
                                 <input type="radio" id="" name="73_Menor5Años" value="SI">
@@ -751,7 +805,7 @@ function valores($Resultados){
                             ?>
                         </select>
 
-                        <div class="sub-title-large"> <b>76.</b>  Medida complementaria identificación de riesgo de muerte por desnutrición aguda , Perimetro Braquial</div>
+                        <div class="sub-title"> <b>76.</b>  Medida complementaria identificación de riesgo de muerte por desnutrición aguda , Perimetro Braquial</div>
                         <input type="text" class="input_general" name="76_RiesgoMuerteDesnutr">
 
                         <div class="sub-title"> <b>77.</b> Se identifican signos fisicos de desnutrición aguda </div>
@@ -761,9 +815,10 @@ function valores($Resultados){
                             ?>
                         </select>
 
-                        <div class="sub-title_extend"> <b>78.</b> ¿Actualmente presenta o ha presentado en el último mes alguna enfermedad como: 
+                        <div class="sub-title"> <b>78.</b> ¿Actualmente presenta o ha presentado en el último mes alguna enfermedad como: 
                             Diarrea o soltura de estomago Tos, resfriado, gripa, bronquitis o pulmonía? Problemas 
                             de piel / alergias, accidente casero, familiar o escolar. Alguna otra enfermedad. </div>
+                            <input type="hidden" name="78_EnfermedadMes">
                             <div class="checks">
                                 <div class="check">
                                     <input type="radio" id="" name="78_EnfermedadMes" value="SI" onclick="MostrarDiv('78_2t','78_2v','SI')">
@@ -779,6 +834,7 @@ function valores($Resultados){
                         <input type="text" class="input_general dnone" id="78_2v" name="78_2_Cuales">
 
                         <div class="sub-title"> <b>79.</b> ¿Esta recibiendo atención y tratamiento para la enfermedad actual?</div>
+                        <input type="hidden" name="79_AtencionEnfermedad">
                         <div class="checks">
                             <div class="check">
                                 <input type="radio" id="" name="79_AtencionEnfermedad" value="SI" onclick="MostrarDiv('80_t','80_v','NO')">
@@ -790,14 +846,14 @@ function valores($Resultados){
                             </div>
                         </div>
 
-                        <div class="sub-title-large dnone" id="80_t"> <b>80.</b> Si la respuesta a la pregunta anterior es NO. Marque con X el motivo por el cual no ha recibido la atención </div>
+                        <div class="sub-title dnone" id="80_t"> <b>80.</b> Si la respuesta a la pregunta anterior es NO. Marque con X el motivo por el cual no ha recibido la atención </div>
                         <select class="input_general dnone" id="80_v"name="80_MotivoSinAtencion">
                         <?php
                                 valores($consulta->DatesOfTables('80_MotivoSinAtencion'));
                             ?>
                         </select>
 
-                        <div class="sub-title-large"> <b>81.</b> Si pertenece a población étnica. Actualmente es acompañado u orientado por algún agente de la medicina tradicional?</div>
+                        <div class="sub-title"> <b>81.</b> Si pertenece a población étnica. Actualmente es acompañado u orientado por algún agente de la medicina tradicional?</div>
                         <select class="input_general" name="81_MedicinaTradicional">
                         <?php
                                 valores($consulta->DatesOfTables('81_MedicinaTradicional'));
@@ -805,8 +861,10 @@ function valores($Resultados){
                             </select>
 
 
-                        <div class="sub-title"> <b></b></div>
-                        <a href="#seccion4" class="input_general" name="" >Siguiente</a>
+                        <div class="botones input_general">
+                            <button type="button" class="boton_a border_right" onclick="mostrarSeccion('3_1')">Atras</button>
+                            <a class="boton_a border_right" href="#seccion4" onclick="mostrarSeccion('4_1')">Siguiente</a>
+                        </div>
 
                     </div>
 
@@ -831,7 +889,7 @@ function valores($Resultados){
             <div class="contain_subs">
 
                 <!-- SubSeccion 1.1 Datos generales del escenario del entorno que se caracteriza -->
-                <div class="sub_section1_1">
+                <div class="sub_section1_1" id="4_1">
                     <div class="titulo_seccion">4.1 Características y condiciones del entorno y de la vivienda</div>
 
 
@@ -909,6 +967,7 @@ function valores($Resultados){
 
                         <div class="sub-title"> <b>91.</b> ¿Se observa cerca de la vivienda o dentro de ella s criaderos o reservorios 
                             que pueden favorecer la presencia de vectores transmisores de enfermedades?</div>
+                            <input type="hidden" name="91_CriaderosVectores">
                         
                         <div class="checks">
                             <div class="check">
@@ -923,13 +982,18 @@ function valores($Resultados){
 
                         <div class="sub-title dnone" id="91_2t"> <b>91.2.</b> Cual?</div>
                         <input type="text" class="input_general dnone" id="91_2v" name="91_2_Cuales">
+
+                        <div class="botones input_general">
+                            <a href="#seccion3" class="boton_a border_right" onclick="mostrarSeccion('3_2')">Atras</a>
+                            <button type="button" class="boton_a border_right"  onclick="mostrarSeccion('4_2')">Siguiente</button>
+                        </div>
                         
 
                     </div>
                 </div>
 
                 <!-- SubSeccion 4.2  Oficios u ocupaciones que se desarrollan en la vivienda o su entorno inmediato (peridomicilio) -->
-                <div class="sub_section1_1">
+                <div class="sub_section1_1" id="4_2">
                     <div class="titulo_seccion">4.2  Oficios u ocupaciones que se desarrollan en la vivienda o su entorno inmediato (peridomicilio)</div>
 
                     <div class="content_section1_1">
@@ -944,7 +1008,7 @@ function valores($Resultados){
                         <input type="text" class="input_general" name="92_2_Especifique">
 
                         <div class="sub-title"> <b>93.</b>  ¿Al interior de la vivienda se realiza alguna actividad económica?</div>
-                       
+                        <input type="hidden" name="93_ActEconomica">
                         <div class="checks">
                             <div class="check">
                                 <input type="radio" id="" name="93_ActEconomica" value="SI" >
@@ -956,7 +1020,7 @@ function valores($Resultados){
                             </div>
                         </div>
     
-                        <div class="sub-title-large"> <b>94.</b>  Señale los animales que conviven con la familia dentro de la vivienda o en su entorno inmediato, e indique cuantos son:</div>
+                        <div class="sub-title"> <b>94.</b>  Señale los animales que conviven con la familia dentro de la vivienda o en su entorno inmediato, e indique cuantos son:</div>
                         <select class="input_general selects" name="94_AnimalesConvivencia" data-target="94t_94v">
                         <?php
                                 valores($consulta->DatesOfTables('94_AnimalesConvivencia'));
@@ -968,7 +1032,10 @@ function valores($Resultados){
                         <div class="sub-title"> <b>94.3.</b> Registrar Cantidad</div>
                         <input type="number" class="input_general" name="94_3_RegistrarCantidad">
 
-                       
+                        <div class="botones input_general">
+                            <button type="button" class="boton_a border_right" onclick="mostrarSeccion('4_1')">Atras</button>
+                            <button type="button" class="boton_a border_right" onclick="mostrarSeccion('4_3')">Siguiente</a>
+                        </div>
 
                     </div>
 
@@ -978,8 +1045,8 @@ function valores($Resultados){
 
                 </div>
 
-                <div class="sub_section1_1">
-                    <div class="titulo_seccion">1.2 Agua y saneamiento básico</div>
+                <div class="sub_section1_1" id="4_3">
+                    <div class="titulo_seccion">4.3 Agua y saneamiento básico</div>
 
                     <div class="content_section1_1">
 
@@ -1019,8 +1086,11 @@ function valores($Resultados){
                         <div class="sub-title dnone" id="98t"> <b>98.2.</b> Cual?</div>
                         <input type="text" class="input_general dnone" name="98_2_Cual" id="98v">
 
-
-                        <button type="submit" class="input_general" name="" >FINALIZAR</a>
+                        <div class="botones input_general">
+                            <button type="button" class="boton_a border_right" onclick="mostrarSeccion('4_2')">Atras</button>
+                            <button type="submit" class="boton_a border_right" >Enviar</a>
+                        </div>
+                        
 
                         
                     </div>
@@ -1039,6 +1109,7 @@ function valores($Resultados){
     </form>
 </body>
 
-<script src="Js/Mostrar_Elementos.js"></script>
-<script src="Js/Js.js"></script>
+<script src="/Proyectos/Minsalud/Js/Mostrar_Elementos.js"></script>
+<script src="/Proyectos/Minsalud/Js/Js.js"></script>
+<script src="/Proyectos/Minsalud/Js/Cambiar_vistas.js"></script>
 </html>

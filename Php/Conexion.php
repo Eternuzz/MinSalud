@@ -1,7 +1,7 @@
 <?php
 $host='localhost';
 $root='root';
-$password='12345';
+$password='yzqaffuwhe1';
 $nombrebd='minsalud2';
 $mysqli= new mysqli($host,$root,$password,$nombrebd,3307);
 if(!$mysqli){

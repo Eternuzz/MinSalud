@@ -1,13 +1,13 @@
 <?php
 
-require_once "Conexion.php";
-require_once "Clases/Consultas.php";
-require_once "Mapeo/MapeoColumnas.php";
+require_once "../Conexion.php";
+require_once "../Clases/Consultas.php";
+require_once "../Mapeo/MapeoColumnas.php";
 
 $AllDates = new Consultas($mysqli);
+$consulta = $AllDates->AllDates();
 
-
-if($AllDates->AllDates()){
+if($consulta){
 
     header('Content-Type: text/csv; charset=UTF-8');
     header('Content-Disposition: attachment; filename="datos.csv"');
@@ -19,7 +19,7 @@ if($AllDates->AllDates()){
     fputcsv($csvFile, array_values($MapeoColumna));
 
     // Iterar sobre cada fila y escribirla en el archivo CSV con los nuevos nombres
-    while ($row = mysqli_fetch_assoc($Ejecutar_Consulta)) {
+    while ($row = mysqli_fetch_assoc($consulta)) {
         // Renombrar las claves del array de la fila según el mapeo
         $newRow = [];
         foreach ($MapeoColumna as $oldName => $newName) {

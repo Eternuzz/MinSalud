@@ -210,6 +210,7 @@ function valores($Resultados){
 
 
                         <div class="sub-title"> <b>25.</b> En la familia se identifica un cuidador principal de niños, niñas, persona con discapacidad, adulto mayor o enfermedad?</div>
+                        <input type="hidden" name="25_CuidadorPrinc">
                         <div class="checks">
                             <div class="check">
                                 <input type="radio" id="opcion1" name="25_CuidadorPrinc" value="SI" onclick="MostrarDiv('26_t','26_v','SI')">
@@ -252,6 +253,7 @@ function valores($Resultados){
                     <div class="content_section1_1">
 
                         <div class="sub-title"> <b>28.</b> Familia con niñas, niños y adolescentes </div>
+                        <input type="hidden" name="28_FamNiñosAdoles">
                         <div class="checks">
                             <div class="check">
                                 <input type="radio" id="" name="28_FamNiñosAdoles" value="SI">
@@ -264,6 +266,7 @@ function valores($Resultados){
                         </div>
     
                         <div class="sub-title"> <b>29.</b> Gestante en la familia</div>
+                        <input type="hidden" name="29_GestanteFam">
                                                 <div class="checks">
                             <div class="check">
                                 <input type="radio" id="" name="29_GestanteFam" value="SI">
@@ -276,6 +279,8 @@ function valores($Resultados){
                         </div>
 
                         <div class="sub-title"> <b>30.</b> Familia con personas adultos mayores </div>
+                        <input type="hidden" name="30_FamAdultMayores">
+
                                                 <div class="checks">
                             <div class="check">
                                 <input type="radio" id="" name="30_FamAdultMayores" value="SI">
@@ -288,6 +293,8 @@ function valores($Resultados){
                         </div>
     
                         <div class="sub-title"> <b>31.</b> Familia víctima del conflicto armado </div>
+                        <input type="hidden" name="31_FamVicConflicto">
+
                                                 <div class="checks">
                             <div class="check">
                                 <input type="radio" id="" name="31_FamVicConflicto" value="SI">
@@ -300,6 +307,7 @@ function valores($Resultados){
                         </div>
 
                         <div class="sub-title"> <b>32.</b>  Familia que convive con personas con discapacidad </div>
+                        <input type="hidden" name="32_FamDiscapacidad">
                         <div class="checks">
                             <div class="check">
                                 <input type="radio" id="" name="32_FamDiscapacidad" value="SI">
@@ -312,6 +320,7 @@ function valores($Resultados){
                         </div>
     
                         <div class="sub-title"> <b>33.</b> Familia que convive con personas que presentan alguna enfermedad crónica,huérfana o en estado terminal</div>
+                        <input type="hidden" name="33_FamEnfCronica">
                         <div class="checks">
                             <div class="check">
                                 <input type="radio" id="" name="33_FamEnfCronica" value="SI">
@@ -332,6 +341,7 @@ function valores($Resultados){
 
                         <div class="sub-title"> <b>35.</b>Familia con vivencia de sucesos vitales normativos y no normativos ( Eventos significativos que inciden de manera positiva o negativa en la 
                             persona y familia por ejemplo: Ingreso de niños estudiar, muerte familiar, accidente que genera discapacidad, separación pareja, entre otros)</div>
+                            <input type="hidden" name="35_FamSucesosVit">
                         <div class="checks">
                             <div class="check">
                                 <input type="radio" id="" name="35_FamSucesosVit" value="SI">
@@ -345,7 +355,8 @@ function valores($Resultados){
                         
                         <div class="sub-title"> <b>36.</b>Familia en situación de vulnerabilidad social (Consumo de SPA - Alcohol, explotación sexual, trabajo infantil, conflictos interpersonales, 
                             violencia intrafamiliar, trastorno mental, entre otras</div>
-                                                <div class="checks">
+                            <input type="hidden" name="36_FamVulnSocial">
+                        <div class="checks">
                             <div class="check">
                                 <input type="radio" id="" name="36_FamVulnSocial" value="SI">
                                 <label >SI</label><br>
@@ -359,6 +370,7 @@ function valores($Resultados){
                         <div class="sub-title"> <b>37.</b>Familias con prácticas de cuidado de salud críticas de varios de sus integrantes que ponen en riesgo o han afectado en la salud (Hábitos
                             alimentarios, situaciones de abandono)
                             </div>
+                            <input type="hidden" name="37_PracCuidadoSalud">
                                                 <div class="checks">
                             <div class="check">
                                 <input type="radio" id="" name="37_PracCuidadoSalud" value="SI">
@@ -371,6 +383,7 @@ function valores($Resultados){
                         </div>
                         
                         <div class="sub-title"> <b>38.</b>Familia con integrantes con antecedentes de Ca, HTA, Diabetes, Asma, Enfermedad cardiaca, otra</div>
+                        <input type="hidden" name="38_AntecEnfermedades">
                         <div class="checks">
                             <div class="check">
                                 <input type="radio" id="" name="38_AntecEnfermedades" value="SI" onclick="MostrarDiv('38_2t','38_2v','SI');MostrarDiv('38_3t','38_3v','SI')">
@@ -428,6 +441,7 @@ function valores($Resultados){
 
                         <div class="sub-title"> <b>40.</b>  Hábitos de vida saludable adaptado a las condiciones 
                             contextuales y culturales de la familia y sus integrantes. </div>
+                            <input type="hidden" name="40_HabitosSaludables">
                         <div class="checks">
                             <div class="check">
                                 <input type="radio" id="" name="40_HabitosSaludables" value="SI">
@@ -441,6 +455,7 @@ function valores($Resultados){
     
                         <div class="sub-title"> <b>41.</b> Recursos socioemocionales que 
                             potencian el cuidado de la salud de la familia</div>
+                            <input type="hidden" name="41_RecSocioemocionales">
                         <div class="checks">
                             <div class="check">
                                 <input type="radio" id="" name="41_RecSocioemocionales" value="SI">
@@ -453,6 +468,7 @@ function valores($Resultados){
                         </div>
 
                         <div class="sub-title"> <b>42.</b> Prácticas para el cuidado y protección de los entornos </div>
+                        <input type="hidden" name="42_PracCuidadoEnt">
                         <div class="checks">
                             <div class="check">
                                 <input type="radio" id="" name="42_PracCuidadoEnt" value="SI">
@@ -466,6 +482,7 @@ function valores($Resultados){
     
                         <div class="sub-title"> <b>43.</b> Prácticas de favorecen el establecimiento 
                             de relaciones sanas y constructivas </div>
+                            <input type="hidden" name="43_PracRelSanas">
                         <div class="checks">
                             <div class="check">
                                 <input type="radio" id="" name="43_PracRelSanas" value="SI">
@@ -479,6 +496,7 @@ function valores($Resultados){
 
                         <div class="sub-title"> <b>44.</b>  Recursos sociales y comunitarios para el establecimiento 
                             de redes colectivas para la promoción de la salud. </div>
+                            <input type="hidden" name="44_RecSocComunitarios">
                         <div class="checks">
                             <div class="check">
                                 <input type="radio" id="" name="44_RecSocComunitarios" value="SI">
@@ -492,6 +510,7 @@ function valores($Resultados){
     
                         <div class="sub-title"> <b>45.</b> Prácticas para la conservación de la autonomía 
                             y la capacidad funcional de las personas mayores.</div>
+                            <input type="hidden" name="45_PracConsAutonomia">
                         <div class="checks">
                             <div class="check">
                                 <input type="radio" id="" name="45_PracConsAutonomia" value="SI">
@@ -505,6 +524,7 @@ function valores($Resultados){
                         
                         <div class="sub-title"> <b>46</b>Prácticas para la prevención 
                             de enfermedades en todas las edades.</div>
+                            <input type="hidden" name="46_PracPrevEnferm">
                         <div class="checks">
                             <div class="check">
                                 <input type="radio" id="" name="46_PracPrevEnferm" value="SI">
@@ -518,6 +538,7 @@ function valores($Resultados){
                         
                         <div class="sub-title"> <b>47</b>Prácticas de cuidado desde los saberes ancestrales/tradicionales (aplica para 
                             poblaciones y comunidades indígenas, negras afrocolombianas, raizales, palenqueras y rom)</div>
+                            <input type="hidden" name="47_PracCuidadoAncestrales">
                         <div class="checks">
                             <div class="check">
                                 <input type="radio" id="" name="47_PracCuidadoAncestrales" value="SI">
@@ -530,6 +551,7 @@ function valores($Resultados){
                         </div>
                         
                         <div class="sub-title"> <b>48</b>Capacidades de las familias para el ejercicio y exigibilidad del derecho a la salud</div>
+                        <input type="hidden" name="48_CapDerechoSalud">
                         <div class="checks">
                             <div class="check">
                                 <input type="radio" id="" name="48_CapDerechoSalud" value="SI">
@@ -659,6 +681,7 @@ function valores($Resultados){
                           </select>
 
                         <div class="sub-title"> <b>66.</b> El integrante de la familia presenta situaciones o condiciones de salud crónica</div>
+                        <input type="hidden" name="66_CondSaludCronica">
                         <div class="checks">
                             <div class="check">
                                 <input type="radio" id="" name="66_CondSaludCronica" value="SI">
@@ -686,6 +709,7 @@ function valores($Resultados){
                     <div class="content_section1_1">
 
                         <div class="sub-title"> <b>67.</b>  Cumple con el esquema de atenciones de promoción y mantenimiento para el momento de curso de vida o para la gestación </div>
+                        <input type="hidden" name="67_EsquemaPromocion">
                         <div class="checks">
                             <div class="check">
                                 <input type="radio" id="" name="67_EsquemaPromocion" value="SI">
@@ -712,6 +736,7 @@ function valores($Resultados){
                         </select>
     
                         <div class="sub-title"> <b>70.</b>  ¿Realiza alguna práctica deportiva o realiza ejercicio?</div>
+                        <input type="hidden" name="70_PracDeportiva">
                         <div class="checks">
                             <div class="check">
                                 <input type="radio" id="" name="70_PracDeportiva" value="SI">
@@ -724,6 +749,7 @@ function valores($Resultados){
                         </div>
 
                         <div class="sub-title"> <b>71.</b>  Si es menor de 6 meses, ¿recibe lactancia materna exclusiva? </div>
+                        <input type="hidden" name="71_LactMatExclusiva">
                         <div class="checks">
                             <div class="check">
                                 <input type="radio" id="" name="71_LactMatExclusiva" value="SI">
@@ -733,16 +759,17 @@ function valores($Resultados){
                                 <input type="radio" id="" name="71_LactMatExclusiva" value="NO">
                                 <label >NO</label><br>
                             </div>
-                            <div class="check">
+                            <!-- <div class="check">
                                 <input type="radio" id="" name="71_LactMatExclusiva" value="NO APLICA">
                                 <label >No Aplica</label><br>
-                            </div>
+                            </div> -->
                         </div>
     
                         <div class="sub-title -large"> <b>72.</b> Si es menor de 2 años, ¿hasta cuando recibio lactancia materna? (en meses)</div>
                         <input type="number" class="input_general" name="72_DuracLactMat">
 
                         <div class="sub-title"> <b>73.</b>  Es menor de 5 años?</div>
+                        <input type="hidden" name="73_Menor5Años">
                         <div class="checks">
                             <div class="check">
                                 <input type="radio" id="" name="73_Menor5Años" value="SI">
@@ -784,6 +811,7 @@ function valores($Resultados){
                         <div class="sub-title"> <b>78.</b> ¿Actualmente presenta o ha presentado en el último mes alguna enfermedad como: 
                             Diarrea o soltura de estomago Tos, resfriado, gripa, bronquitis o pulmonía? Problemas 
                             de piel / alergias, accidente casero, familiar o escolar. Alguna otra enfermedad. </div>
+                            <input type="hidden" name="78_EnfermedadMes">
                             <div class="checks">
                                 <div class="check">
                                     <input type="radio" id="" name="78_EnfermedadMes" value="SI" onclick="MostrarDiv('78_2t','78_2v','SI')">
@@ -799,6 +827,7 @@ function valores($Resultados){
                         <input type="text" class="input_general dnone" id="78_2v" name="78_2_Cuales">
 
                         <div class="sub-title"> <b>79.</b> ¿Esta recibiendo atención y tratamiento para la enfermedad actual?</div>
+                        <input type="hidden" name="79_AtencionEnfermedad">
                         <div class="checks">
                             <div class="check">
                                 <input type="radio" id="" name="79_AtencionEnfermedad" value="SI" onclick="MostrarDiv('80_t','80_v','NO')">
@@ -931,6 +960,7 @@ function valores($Resultados){
 
                         <div class="sub-title"> <b>91.</b> ¿Se observa cerca de la vivienda o dentro de ella s criaderos o reservorios 
                             que pueden favorecer la presencia de vectores transmisores de enfermedades?</div>
+                            <input type="hidden" name="91_CriaderosVectores">
                         
                         <div class="checks">
                             <div class="check">
@@ -971,7 +1001,7 @@ function valores($Resultados){
                         <input type="text" class="input_general" name="92_2_Especifique">
 
                         <div class="sub-title"> <b>93.</b>  ¿Al interior de la vivienda se realiza alguna actividad económica?</div>
-                       
+                        <input type="hidden" name="93_ActEconomica">
                         <div class="checks">
                             <div class="check">
                                 <input type="radio" id="" name="93_ActEconomica" value="SI" >
